@@ -175,6 +175,7 @@ public class ScriptRun implements ScriptRunListener{
 		scriptContent.run = false;
 		if (!poolChainOfScripts.isEmpty()) {
 			poolChainOfScripts.clear();
+
 		}
 	}
 
