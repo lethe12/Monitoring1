@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/unselectedGray" >
+
+    <LinearLayout
+        android:id="@+id/linearLayoutNextCal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="20dp"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tvNextCalDate"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:text="下次校准时间:2016-12-12 12:12" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp" >
+
+            <TextView
+                android:id="@+id/tvAutoCalInterval"
+                style="@style/TextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="校准时间间隔:" />
+
+            <EditText
+                android:id="@+id/etAutoCalInterval"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="3"
+                android:inputType="number"
+                android:maxLength="5"
+                android:text="1440"
+                android:textSize="40sp" />
+
+            <TextView
+                style="@style/TextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="分钟" />
+
+            <Button
+                android:id="@+id/btnSaveAutoCalInfo"
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="180dp"
+                android:background="@drawable/selector_red_corners_button"
+                android:text="保存"
+                android:textSize="40sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayoutNextCal"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="20dp"
+        android:background="@color/white"
+        android:focusable="true"
+        android:focusableInTouchMode="true" >
+
+        <TextView
+            android:id="@+id/textView1"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:text="自动校准" />
+
+        <ToggleButton
+            android:id="@+id/tbAutoCalSet"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="500dp"
+            android:background="@color/transparent"
+            android:button="@drawable/toggle_button"
+            android:text="ToggleButton"
+            android:textOff=""
+            android:textOn="" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvLastCalInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="20dp"
+        android:text="校准信息:"
+        android:textColor="@android:color/black"
+        android:textSize="25sp" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout1"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="20dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="低浓度标液:" />
+
+        <EditText
+            android:id="@+id/etCalLow"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:maxLength="4"
+            android:text="0"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mg/L 高点标液:" />
+
+        <EditText
+            android:id="@+id/etCalHigh"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"
+            android:maxLength="4"
+            android:text="0.5"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="mg/L" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:background="@color/white" >
+
+        <Button
+            android:id="@+id/btnOperationCalLow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="低点校准"
+            android:textSize="50sp" />
+
+        <Button
+            android:id="@+id/btnOperationCalHigh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="高点校准"
+            android:textSize="50sp" />
+
+        <Button
+            android:id="@+id/btnOperationCal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="一键校准"
+            android:textSize="50sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

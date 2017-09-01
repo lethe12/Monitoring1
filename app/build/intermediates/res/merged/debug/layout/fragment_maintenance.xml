@@ -1,0 +1,1102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/unselectedGray" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" >
+
+        <Button
+            android:id="@+id/btnOperateInit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="初始化"
+            android:textSize="50sp" />
+
+        <Button
+            android:id="@+id/btnOperateClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="清  洗"
+            android:textSize="50sp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="0.5"
+            android:text="维护功能" />
+
+        <ToggleButton
+            android:id="@+id/tbOperateMaintenModel"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:layout_weight="0.5"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:background="@color/transparent"
+            android:button="@drawable/toggle_button"
+            android:text="ToggleButton"
+            android:textOff=""
+            android:textOn=""
+            android:checked="false"  />
+
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/scrollViewDetailMaintenance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginTop="20dp"
+        android:visibility="visible" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_weight="1"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                >
+
+                <TextView
+                    android:id="@+id/tvOperateDectector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:text="Ch1=1000;\nCh8=1;"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp" />
+                
+            </LinearLayout>
+
+			<LinearLayout
+			    android:layout_width="match_parent"
+			    android:layout_height="wrap_content"
+			    android:layout_marginTop="15dp"
+			    android:layout_weight="1"
+			    android:background="@color/white" >
+
+			    <TextView
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="center"
+			        android:layout_marginBottom="10dp"
+			        android:layout_marginLeft="40dp"
+			        android:layout_marginTop="10dp"
+			        android:layout_weight="0.5"
+			        android:text="温度1:"
+			        android:textColor="@android:color/black"
+			        android:textSize="20sp" />
+
+			    <EditText
+			        android:id="@+id/etOperateTempParam1"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_margin="10dp"
+			        android:layout_weight="1"
+			        android:text="20"
+			        android:ems="2"
+			        android:maxLength="3"
+			        android:inputType="numberDecimal" >
+			    </EditText>
+
+			    <Button
+			        android:id="@+id/btnTempParam1"
+			        style="?android:attr/buttonStyleSmall"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="center"
+			        android:layout_margin="10dp"
+			        android:layout_weight="1"
+			        android:text="校准"
+			        android:textSize="20sp"
+			        android:background="@drawable/selector_red_corners_button" />
+
+			    <TextView
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="center"
+			        android:layout_margin="10dp"
+			        android:layout_weight="0.5"
+			        android:text="温度2:"
+			        android:textColor="@android:color/black"
+			        android:textSize="20sp" />
+
+			    <EditText
+			        android:id="@+id/etOperateTempParam2"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="center"
+			        android:layout_margin="10dp"
+			        android:layout_weight="1"
+			        android:text="20"
+			        android:ems="2"
+			        android:maxLength="3"
+			        android:inputType="numberDecimal" >
+			    </EditText>
+
+			    <Button
+			        android:id="@+id/btnTempParam2"
+			        style="?android:attr/buttonStyleSmall"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_gravity="center"
+			        android:layout_margin="10dp"
+			        android:layout_weight="1"
+			        android:text="校准"
+			        android:textSize="20sp"
+			        android:background="@drawable/selector_red_corners_button" />
+			</LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:background="@color/white" >
+
+                <Button
+                    android:id="@+id/btnGetDetector"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="0.6"
+                    android:textSize="20sp"
+                    android:background="@drawable/selector_red_corners_button"
+                    android:text="获取当前参数" />
+
+                <Button
+                    android:id="@+id/btnGetDevices"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:layout_weight="0.6"
+                    android:text="获取泵阀状态"
+                    android:textSize="20sp"
+                    android:background="@drawable/selector_red_corners_button" />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateVD1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton" />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateVD2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton" />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateVD3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton" />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateVD4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton" />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateVD5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton" />
+
+                
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" 
+                android:background="@color/white"
+                android:layout_weight="1" >
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V1Off"
+                    android:textOn="V1On" />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"                    
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V2Off"
+                    android:textOn="V2On" />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V3Off"
+                    android:textOn="V3On"  />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V4Off"
+                    android:textOn="V4On"  />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton" 
+                    android:textOff="V5Off"
+                    android:textOn="V5On" />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V6Off"
+                    android:textOn="V6On"  />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V7Off"
+                    android:textOn="V7On"  />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V8Off"
+                    android:textOn="V8On"  />
+                
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" 
+                android:background="@color/white"
+                android:layout_weight="1" >
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V9Off"
+                    android:textOn="V9On"  />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V10Off"
+                    android:textOn="V10On"  />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V11Off"
+                    android:textOn="V11On"  />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V12Off"
+                    android:textOn="V12On"  />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V13Off"
+                    android:textOn="V13On"  />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V14Off"
+                    android:textOn="V14On"  />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V15Off"
+                    android:textOn="V15On"  />
+
+                <ToggleButton
+                    android:id="@+id/tbOperateV16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V16Off"
+                    android:textOn="V16On"  />
+                
+            </LinearLayout>
+
+            <LinearLayout 
+                android:layout_width="match_parent" 
+                android:layout_height="wrap_content" 
+                android:layout_marginTop="20dp" 
+                android:background="@color/white"
+                android:layout_weight="1">
+
+                <ToggleButton android:id="@+id/tbOperateV17" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1" 
+                    android:text="ToggleButton"
+                    android:textOff="V17Off"
+                    android:textOn="V17On"  />
+
+                <ToggleButton 
+                    android:id="@+id/tbOperateV18" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_margin="5dp" 
+                    android:layout_weight="1" 
+                    android:text="ToggleButton"
+                    android:textOff="V18Off"
+                    android:textOn="V18On"  />
+
+                <ToggleButton 
+                    android:id="@+id/tbOperateV19" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_margin="5dp" 
+                    android:layout_weight="1" 
+                    android:text="ToggleButton"
+                    android:textOff="V19Off"
+                    android:textOn="V19On"  />
+
+                <ToggleButton 
+                    android:id="@+id/tbOperateV20" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_margin="5dp" 
+                    android:layout_weight="1" 
+                    android:text="ToggleButton"
+                    android:textOff="V20Off"
+                    android:textOn="V20On"  />
+
+                <ToggleButton 
+                    android:id="@+id/tbOperateV21" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_margin="5dp" 
+                    android:layout_weight="1" 
+                    android:text="ToggleButton"
+                    android:textOff="V21Off"
+                    android:textOn="V21On"  />
+
+                <ToggleButton 
+                    android:id="@+id/tbOperateV22" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_margin="5dp" 
+                    android:layout_weight="1" 
+                    android:text="ToggleButton"
+                    android:textOff="V22Off"
+                    android:textOn="V22On"  />
+
+                <ToggleButton 
+                    android:id="@+id/tbOperateV23" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_margin="5dp" 
+                    android:layout_weight="1" 
+                    android:text="ToggleButton"
+                    android:textOff="V23Off"
+                    android:textOn="V23On"  />
+
+                <ToggleButton 
+                    android:id="@+id/tbOperateV24" 
+                    android:layout_width="wrap_content" 
+                    android:layout_height="wrap_content" 
+                    android:layout_margin="5dp" 
+                    android:layout_weight="1" 
+                    android:text="ToggleButton"
+                    android:textOff="V24Off"
+                    android:textOn="V24On"  />
+                
+            </LinearLayout>
+			
+            <LinearLayout 
+                android:layout_width="match_parent" 
+                android:layout_height="wrap_content" 
+                android:layout_marginTop="20dp" 
+                android:background="@color/white"
+                android:layout_weight="1">
+                
+                <ToggleButton
+                    android:id="@+id/tbOperateV25"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V25Off"
+                    android:textOn="V25On" />
+                
+                <ToggleButton
+                    android:id="@+id/tbOperateV26"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V26Off"
+                    android:textOn="V26On" />
+                
+                <ToggleButton
+                    android:id="@+id/tbOperateV27"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V27Off"
+                    android:textOn="V27On" />
+                
+                <ToggleButton
+                    android:id="@+id/tbOperateV28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V28Off"
+                    android:textOn="V28On" />
+                
+                <ToggleButton
+                    android:id="@+id/tbOperateV29"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V29Off"
+                    android:textOn="V29On"
+                    android:visibility="invisible" />
+                
+                <ToggleButton
+                    android:id="@+id/tbOperateV30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V30Off"
+                    android:textOn="V30On"
+                    android:visibility="invisible" />
+                
+                <ToggleButton
+                    android:id="@+id/tbOperateV31"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V31Off"
+                    android:textOn="V31On"
+                    android:visibility="invisible" />
+                
+                <ToggleButton
+                    android:id="@+id/tbOperateV32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    android:text="ToggleButton"
+                    android:textOff="V32Off"
+                    android:textOn="V32On"
+                    android:visibility="invisible" />
+                
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearLayoutPump1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" 
+                android:background="@color/white"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="蠕动泵一:"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"/>
+
+                <EditText
+                    android:id="@+id/etOperatePumpRound1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="numberSigned" 
+                    android:layout_margin="5dp"                    
+			        android:text="10"
+			        android:ems="2"
+			        android:maxLength="3">
+                </EditText>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="圈 "
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_margin="5dp"/>
+                <EditText
+                    android:id="@+id/etOperatePumpTime1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:layout_margin="5dp"                                       
+			        android:text="10"
+			        android:ems="2"
+			        android:maxLength="3" >
+                </EditText>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="秒"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_margin="5dp"/>
+
+                <Button
+                    android:id="@+id/btnStartPump1"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="启动" 
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/selector_red_corners_button"/>
+                <Button
+                    android:id="@+id/btnStopPump1"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="停止" 
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/selector_red_corners_button"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="输入系数:"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_margin="5dp"/>
+                <EditText
+                    android:id="@+id/etOperatePumpParam1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal"
+                    android:layout_margin="5dp"                                       
+			        android:text="1"
+			        android:ems="2"
+			        android:maxLength="3" >
+                </EditText>
+				<Button
+                    android:id="@+id/btnPumpParam1"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="保存"
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/selector_red_corners_button" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearLayoutPump2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" 
+                android:background="@color/white"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="蠕动泵二:"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"/>
+
+                <EditText
+                    android:id="@+id/etOperatePumpRound2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="numberSigned"
+                    android:layout_margin="5dp"                   
+			        android:text="10"
+			        android:ems="2"
+			        android:maxLength="3" >
+
+                </EditText>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="圈 "
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_margin="5dp"/>
+                <EditText
+                    android:id="@+id/etOperatePumpTime2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number" 
+                    android:layout_margin="5dp"                   
+			        android:text="10"
+			        android:ems="2"
+			        android:maxLength="3">
+
+                </EditText>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="秒"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_margin="5dp"/>
+
+                <Button
+                    android:id="@+id/btnStartPump2"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="启动" 
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/selector_red_corners_button"/>
+                <Button
+                    android:id="@+id/btnStopPump2"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="停止" 
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/selector_red_corners_button"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="输入系数:"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_margin="5dp"/>
+                <EditText
+                    android:id="@+id/etOperatePumpParam2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal"
+                    android:layout_margin="5dp"                   
+			        android:text="1"
+			        android:ems="2"
+			        android:maxLength="3" >
+
+                </EditText>
+				<Button
+                    android:id="@+id/btnPumpParam2"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="保存"
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/selector_red_corners_button" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearLayoutPump3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" 
+                android:background="@color/white"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="蠕动泵三:"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"/>
+
+                <EditText
+                    android:id="@+id/etOperatePumpRound3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_margin="5dp"                   
+			        android:text="10"
+			        android:ems="2"
+			        android:maxLength="3"
+			        android:inputType="numberSigned">
+
+                </EditText>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="圈 "
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_margin="5dp"/>
+                <EditText
+                    android:id="@+id/etOperatePumpTime3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:layout_margin="5dp"                   
+			        android:text="10"
+			        android:ems="2"
+			        android:maxLength="3" >
+
+                </EditText>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="秒"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_margin="5dp"/>
+
+                <Button
+                    android:id="@+id/btnStartPump3"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="启动"
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/selector_red_corners_button" />
+                <Button
+                    android:id="@+id/btnStopPump3"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="停止"
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/selector_red_corners_button" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="输入系数:"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_margin="5dp"/>
+                <EditText
+                    android:id="@+id/etOperatePumpParam3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal"
+                    android:layout_margin="5dp"                   
+			        android:text="1"
+			        android:ems="2"
+			        android:maxLength="3" >
+
+                </EditText>
+				<Button
+                    android:id="@+id/btnPumpParam3"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="保存"
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/selector_red_corners_button" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/linearLayoutPump4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" 
+                android:background="@color/white"
+                android:layout_weight="1" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="蠕动泵四:"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"/>
+
+                <EditText
+                    android:id="@+id/etOperatePumpRound4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="numberSigned"
+                    android:layout_margin="5dp"                   
+			        android:text="10"
+			        android:ems="2"
+			        android:maxLength="3" >
+
+                </EditText>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="圈 "
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_margin="5dp"/>
+                <EditText
+                    android:id="@+id/etOperatePumpTime4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:layout_margin="5dp"                   
+			        android:text="10"
+			        android:ems="2"
+			        android:maxLength="3" >
+
+                </EditText>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="秒"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_margin="5dp"/>
+
+                <Button
+                    android:id="@+id/btnStartPump4"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="启动" 
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/selector_red_corners_button"/>
+                <Button
+                    android:id="@+id/btnStopPump4"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="停止"
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/selector_red_corners_button"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="输入系数:"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="0.5"
+                    android:layout_margin="5dp"/>
+                <EditText
+                    android:id="@+id/etOperatePumpParam4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:inputType="numberDecimal" 
+                    android:layout_margin="5dp"                   
+			        android:text="10"
+			        android:ems="2"
+			        android:maxLength="3">
+
+                </EditText>
+				<Button
+                    android:id="@+id/btnPumpParam4"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="保存"
+                    android:layout_margin="5dp"
+                    android:textSize="20sp"
+                    android:background="@drawable/selector_red_corners_button"/>
+            </LinearLayout>
+            
+            <LinearLayout 
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" 
+                android:background="@color/white"
+                android:layout_weight="1"
+                >
+                <TextView
+                    android:id="@+id/tvOperateInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="当前仪器版本:"
+                    android:textSize="20sp"
+                    android:textColor="@android:color/black" 
+                    android:layout_weight="1"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="5dp"/>
+                
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

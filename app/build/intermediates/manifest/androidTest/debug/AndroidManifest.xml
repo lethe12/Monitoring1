@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.com.grean.monitoring.test">
+
+    <uses-sdk android:minSdkVersion="16" android:targetSdkVersion="16" />
+
+    <application>
+        <uses-library android:name="android.test.runner" />
+    </application>
+
+    <instrumentation android:name="android.test.InstrumentationTestRunner"
+                     android:targetPackage="cn.com.grean.monitoring"
+                     android:handleProfiling="false"
+                     android:functionalTest="false"
+                     android:label="Tests for cn.com.grean.monitoring"/>
+</manifest>

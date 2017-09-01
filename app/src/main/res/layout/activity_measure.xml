@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+        <ImageView
+            android:id="@+id/iv_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/logo" />
+
+        <ImageView
+            android:id="@+id/ivOnLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="300dp"
+            android:src="@drawable/icon_online"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/ivBreakDown"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/icon_breakdown"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/ivWarring"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/icon_warring"
+            android:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/ivMaintenance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/icon_maintenance"
+            android:visibility="invisible" />
+
+        <DigitalClock
+            android:id="@+id/digitalClock1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:text="DigitalClock"
+            android:textColor="@android:color/black"
+            android:textSize="40sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginTop="24dp" >
+
+        <TextView
+            android:id="@+id/tv_devices_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="30dp"
+            android:text="NoName"
+            android:textColor="@android:color/black"
+            android:textSize="60sp" />
+
+        <TextView
+            android:id="@+id/tv_measure_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="460dp"
+            android:padding="10dp"
+            android:text="2016-12-12 12:12"
+            android:textColor="@android:color/black"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="20dp" >
+
+        <TextView
+            android:id="@+id/tv_nexttest_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
+            android:layout_weight="1"
+            android:text="下次测量时间:"
+            android:textColor="@android:color/black"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/tv_nextcal_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="下次校准时间:"
+            android:textColor="@android:color/black"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout4"
+        android:layout_alignParentLeft="true"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tv_measure_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginLeft="30dp"
+            android:text="当前状态:"
+            android:textColor="@android:color/black"
+            android:textSize="30sp" />
+
+        <ProgressBar
+            android:id="@+id/pb_measure_progress"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="1000dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_margin="20dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true" >
+
+        <TextView
+            android:id="@+id/tv_measure_result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="250dp"
+            android:padding="10dp"
+            android:text="789.123"
+            android:textColor="@android:color/black"
+            android:textSize="160sp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="100dp"
+            android:text="mg/L"
+            android:textColor="@android:color/black"
+            android:textSize="40sp" />
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="D:\Program Files\Android\Android Studio\gradle\m2repository\com\google\protobuf\protobuf-java\3.0.0\protobuf-java-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6d325aa7c921661d84577c0a93d82da4df9fa4c8">
+        <dex dex="D:\work\android\Monitoring1\app\build\intermediates\pre-dexed\debug\protobuf-java-3.0.0_7ec54596d83d7b1f542cd16f7259cabad6b7bcdd.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\work\android\Monitoring1\app\libs\mpandroidchartlibrary-2-1-4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="952d6628da280edb2bbb66a0848f8d79d3587df5">
+        <dex dex="D:\work\android\Monitoring1\app\build\intermediates\pre-dexed\debug\mpandroidchartlibrary-2-1-4_e86dc2381c8cad5353018986d1addf04abc83ac1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="D:\Android\Android\android-sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
+        <dex dex="D:\work\android\Monitoring1\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_8c8414b5111dc182b2717bc2a8d83d23b850e090.jar" />
+    </item>
+
+</items>

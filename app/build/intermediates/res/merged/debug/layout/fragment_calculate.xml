@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/unselectedGray"
+    android:orientation="vertical" >
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/unselectedGray" >
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/white" >
+
+                <TextView
+                    android:id="@+id/textView1"
+                    style="@style/TextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:text="修正斜率:" />
+
+                <EditText
+                    android:id="@+id/etSettingConsumerSlope"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:ems="3"
+                    android:inputType="numberDecimal"
+                    android:textSize="40sp"
+                    android:maxLength="5" >
+
+                </EditText>
+
+                <TextView
+                    android:id="@+id/textView2"
+                    style="@style/TextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:text="修正截距:" />
+
+                <EditText
+                    android:id="@+id/etSettingConsumerIntercept"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:ems="3"
+                    android:inputType="numberDecimal"
+                    android:textSize="40sp"
+                    android:maxLength="5" />
+
+                <Button
+                    android:id="@+id/btnSettingSaveConsumer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/selector_red_corners_button"
+                    android:text="保存"
+                    android:textSize="40sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp" >
+
+                <TextView
+                    android:id="@+id/tvSettingNowValue"
+                    style="@style/TextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:text="当前结果:" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_marginTop="20dp"
+                android:background="@color/white" >
+
+                <TextView
+                    style="@style/TextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="10dp"
+                    android:text="低点校准次数:" />
+
+                <EditText
+                    android:id="@+id/etSettingLowCalTimes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:ems="2"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:textSize="40sp" >
+
+                </EditText>
+
+                <TextView
+                    style="@style/TextStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:text="高点校准次数:" />
+
+                <EditText
+                    android:id="@+id/etSettingHighCalTimes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="10dp"
+                    android:ems="2"
+                    android:inputType="number"
+                    android:maxLength="2"
+                    android:textSize="40sp" >
+
+                </EditText>
+                
+                 <Button
+                     android:id="@+id/btnSettingSaveCalTimes"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_gravity="center"
+                     android:layout_margin="10dp"
+                     android:background="@drawable/selector_red_corners_button"
+                     android:text="保存"
+                     android:textSize="40sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+        
+    </ScrollView>
+
+</LinearLayout>

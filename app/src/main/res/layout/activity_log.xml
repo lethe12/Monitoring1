@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+    
+    <LinearLayout
+        android:id="@+id/log_menu_layout"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/log_menu_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="@color/backgroundBlue" >
+            
+	        <TextView
+	            android:id="@+id/tvLogData"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:layout_marginLeft="30dp"
+	            android:text="数据"
+	            android:textColor="@color/unselectedGray"
+	            android:textSize="40sp" />
+
+        </LinearLayout>
+
+		<LinearLayout
+		    android:id="@+id/log_menu_two"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="center"
+		    android:layout_weight="1"
+		    android:orientation="horizontal"
+		    android:background="@color/backgroundBlue" >
+
+			<TextView
+			    android:id="@+id/tvLogLog"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_gravity="center"
+			    android:layout_marginLeft="30dp"
+			    android:text="日志"
+			    android:textColor="@color/unselectedGray"
+			    android:textSize="40sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/log_menu_three"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="@color/backgroundBlue" >
+            
+	        <TextView
+	            android:id="@+id/tvLogExport"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center"
+	            android:layout_marginLeft="30dp"
+	            android:text="导出"
+	            android:textColor="@color/unselectedGray"
+	            android:textSize="40sp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/log_menu_fourth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="@color/backgroundBlue" >
+            
+	        <TextView
+	            android:id="@+id/tvLogDelete"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center"
+	            android:layout_marginLeft="30dp"
+	            android:text="删除"
+	            android:textColor="@color/unselectedGray"
+	            android:textSize="40sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/log_details_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_weight="1"
+        android:background="@color/white" >
+    </FrameLayout>
+</LinearLayout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+    
+    <LinearLayout
+        android:id="@+id/setting_menu_layout"
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:id="@+id/setting_menu_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="@color/backgroundBlue" >
+            
+	        <TextView
+	            android:id="@+id/tvSettingCommunication"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center_vertical"
+	            android:layout_marginLeft="30dp"
+	            android:text="通讯"
+	            android:textColor="@color/unselectedGray"
+	            android:textSize="40sp" />
+
+        </LinearLayout>
+
+		<LinearLayout
+		    android:id="@+id/setting_menu_two"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:layout_gravity="center"
+		    android:layout_weight="1"
+		    android:orientation="horizontal"
+		    android:background="@color/backgroundBlue" >
+
+			<TextView
+			    android:id="@+id/tvSettingCalculate"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_gravity="center"
+			    android:layout_marginLeft="30dp"
+			    android:text="计算"
+			    android:textColor="@color/unselectedGray"
+			    android:textSize="40sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/setting_menu_three"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="@color/backgroundBlue" >
+            
+	        <TextView
+	            android:id="@+id/tvSettingSystem"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center"
+	            android:layout_marginLeft="30dp"
+	            android:text="系统"
+	            android:textColor="@color/unselectedGray"
+	            android:textSize="40sp" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/setting_menu_fourth"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="@color/backgroundBlue" >
+            
+	        <TextView
+	            android:id="@+id/tvSettingAdvance"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_gravity="center"
+	            android:layout_marginLeft="30dp"
+	            android:text="高级"
+	            android:textColor="@color/unselectedGray"
+	            android:textSize="40sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/setting_details_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_weight="1"
+        android:background="@color/backgroundBlue" >
+    </FrameLayout>
+</LinearLayout>

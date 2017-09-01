@@ -1,0 +1,154 @@
+[
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\operate_selected.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\operate_selected.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\home_unselected.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\home_unselected.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_maintenance.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\icon_maintenance.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\contacts_selected.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\contacts_selected.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\contacts_unselected.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\contacts_unselected.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_listview_headview_red_arrow.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\common_listview_headview_red_arrow.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\toggle_off.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\toggle_off.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\setting_unselected.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\setting_unselected.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_warring.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\icon_warring.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\contacts_selected.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\contacts_selected.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\operate_unselected.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\operate_unselected.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\contacts_unselected.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\contacts_unselected.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_breakdown.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\icon_breakdown.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\setting_selected.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\setting_selected.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_breakdown.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\icon_breakdown.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_online.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\icon_online.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\data_unselected.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\data_unselected.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_warring.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\icon_warring.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\data_unselected.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\data_unselected.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\toggle_off.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\toggle_off.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_online.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\icon_online.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\setting_unselected.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\setting_unselected.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\operate_selected.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\operate_selected.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\home_selected.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\home_selected.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\tab_bg.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\tab_bg.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\toggle_on.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\toggle_on.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\common_listview_headview_red_arrow.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\common_listview_headview_red_arrow.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\toggle_on.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\toggle_on.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\tab_bg.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\tab_bg.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\home_unselected.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\home_unselected.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\icon_maintenance.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\icon_maintenance.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\setting_selected.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\setting_selected.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\data_selected.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\data_selected.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\data_selected.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\data_selected.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_launcher.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\operate_unselected.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\operate_unselected.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\home_selected.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\home_selected.png"
+    }
+]

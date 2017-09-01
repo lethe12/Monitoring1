@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/unselectedGray"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white" >
+
+        <TextView
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:text="网络模式:" />
+
+        <ToggleButton
+            android:id="@+id/tbSettingMasterMode"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="450dp"
+            android:background="@color/transparent"
+            android:button="@drawable/toggle_button"
+            android:text="ToggleButton"
+            android:textOff=""
+            android:textOn="" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayoutSettingSlaveMode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white" >
+
+        <TextView
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="40dp"
+            android:text="波特率:" />
+
+        <Spinner
+            android:id="@+id/spSettingSlaveBaudRate"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
+
+        <TextView
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:text="地址:" />
+
+        <EditText
+            android:id="@+id/etSettingSlaveAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:ems="2"
+            android:inputType="number"
+            android:maxLength="3"
+            android:textSize="40sp" >
+
+        </EditText>
+
+        <Button
+            android:id="@+id/btnSettingSaveSlaveMode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="60dp"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="保存"
+            android:textSize="40sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/viewCommunicationTCP"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white"
+        android:visibility="gone" >
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:text="IP:" />
+
+        <EditText
+            android:id="@+id/etCommunicationIP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:ems="7"
+            android:inputType="textUri"
+            android:text="192.168.168.134"
+            android:maxLength="15"
+            android:textSize="25sp" >
+
+        </EditText>
+
+        <TextView
+            android:id="@+id/textView3"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:text="Port:" />
+
+        <EditText
+            android:id="@+id/etCommunicationPort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:ems="3"
+            android:inputType="number"
+            android:text="12803"
+            android:maxLength="5"
+            android:textSize="25sp" />
+        
+        <TextView
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:text="ID:" />
+
+        <EditText
+            android:id="@+id/etCommunicationID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:ems="3"
+            android:inputType="text"
+            android:text="12345"
+            android:maxLength="6"
+            android:textSize="25sp" />
+
+        <ToggleButton
+            android:id="@+id/tbCommunicationRun"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:background="@color/transparent"
+            android:button="@drawable/toggle_button"
+            android:text="ToggleButton"
+            android:textOff=""
+            android:textOn="" />
+
+        <TextView
+            android:id="@+id/tvCommunicationConected"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:text="未连接"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/white" >
+
+        <TextView
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:text="测试:设定输出" />
+
+        <EditText
+            android:id="@+id/etSettingTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:ems="3"
+            android:inputType="numberDecimal"
+            android:maxLength="5"
+            android:textSize="40sp"
+            android:text="1.00" >
+        </EditText>
+
+        <TextView
+            android:id="@+id/textView1"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:text="mg/L" />
+
+        <Button
+            android:id="@+id/btnSettingSaveTest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="80dp"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="确定"
+            android:textSize="40sp"
+            android:visibility="gone" />
+        
+        <ToggleButton
+            android:id="@+id/tbSettingTestMode"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="80dp"
+            android:background="@color/transparent"
+            android:button="@drawable/toggle_button"
+            android:text="ToggleButton"
+            android:textOff=""
+            android:textOn="" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp" >
+
+        <TextView
+            android:id="@+id/tvSettingTestCmd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="启动命令:\n数据查询:\n数据返回:"
+            android:textColor="@android:color/black"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/tvSettingReceiveCmd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:text="接收区:\n"
+            android:textColor="@android:color/black"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

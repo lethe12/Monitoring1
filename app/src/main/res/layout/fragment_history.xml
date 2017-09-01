@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/tvDataStartDate"
+            style="@style/StringStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:text="2017-01-01 01:01" />
+
+        <TextView
+            style="@style/StringStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:text="至" />
+
+        <TextView
+            android:id="@+id/tvDataEndDate"
+            style="@style/StringStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:text="2017-01-15 01:01" />
+
+        <Button
+            android:id="@+id/btnDataSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="查询"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnDataView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="曲线"
+            android:textSize="30sp" />
+        
+    </LinearLayout>
+	<cn.com.grean.listviewinfo.RefreshListView
+	    android:id="@+id/lvHistoryData"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_marginLeft="40dp"
+	    android:background="#ffffffff"
+	    android:divider="#cccccc"
+	    android:dividerHeight="1dp"
+	    android:textColor="#ffff0000"
+	    android:visibility="visible" >
+	</cn.com.grean.listviewinfo.RefreshListView>
+    
+	<LinearLayout 
+		android:id="@+id/lvDataView"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:orientation="horizontal"
+	    android:layout_marginTop="5dp"
+	    android:visibility="gone">
+	    
+	    
+        <com.github.mikephil.charting.charts.LineChart
+		    android:id="@+id/spread_line_chart"
+		    android:layout_width="match_parent" 
+		    android:layout_height="match_parent"
+		    android:layout_marginLeft="10dp"
+		    android:layout_gravity="center_horizontal"
+	    />
+    </LinearLayout>
+</LinearLayout>

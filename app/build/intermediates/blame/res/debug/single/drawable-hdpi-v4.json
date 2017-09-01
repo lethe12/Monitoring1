@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\selector_red_corners_button.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\selector_red_corners_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_progressbar.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\common_progressbar.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\border.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\border.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\shape_corners_button.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\shape_corners_button.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\shape_corners_button_pressed.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\shape_corners_button_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\shape_corners_button_pressed.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\shape_corners_button_pressed.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\border.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\border.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\common_progressbar.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\common_progressbar.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\toggle_button.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\toggle_button.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\shape_corners_button.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\shape_corners_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\selector_red_corners_button.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\selector_red_corners_button.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\toggle_button.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-hdpi\\toggle_button.xml"
+    }
+]

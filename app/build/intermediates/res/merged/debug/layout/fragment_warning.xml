@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/unselectedGray" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="40dp" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="报警信息:"
+            android:textColor="@android:color/black"
+            android:textSize="40sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="10dp"
+            android:text="报警下限:"
+            android:textColor="@android:color/black"
+            android:textSize="40sp" />
+
+        <EditText
+            android:id="@+id/etWarningFloor"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:ems="2"
+            android:inputType="numberDecimal"
+            android:maxLength="4"
+            android:text="0"
+            android:textSize="40sp" >
+        </EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="mg/L 上限:"
+            android:textColor="@android:color/black"
+            android:textSize="40sp" />
+
+        <EditText
+            android:id="@+id/etWarningUpper"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:maxLength="4"
+            android:text="10"
+            android:textSize="40sp" >
+        </EditText>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="mg/L"
+            android:textColor="@android:color/black"
+            android:textSize="40sp" />
+
+        <Button
+            android:id="@+id/btnSaveWarning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="保存"
+            android:textSize="40sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout2"
+        android:layout_marginTop="20dp"
+        android:orientation="vertical"
+        android:background="@color/white" >
+
+        <Button
+            android:id="@+id/btnWarningClear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginRight="60dp"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="清除报警"
+            android:textSize="40sp" />
+
+        <TextView
+            android:id="@+id/tvWarningInfo"
+            style="@style/TextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
+            android:text="Medium Text\nwarning:123\nerror:456"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </LinearLayout>
+
+</RelativeLayout>

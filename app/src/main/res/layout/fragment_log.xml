@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/tvLogStartDate"
+            style="@style/StringStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:text="2017-01-01 01:01" />
+
+        <TextView
+            style="@style/StringStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="至" />
+
+        <TextView
+            android:id="@+id/tvLogEndDate"
+            style="@style/StringStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="2017-01-15 01:01" />
+
+        <Button
+            android:id="@+id/btnLogSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="查询"
+            android:textSize="30sp" />
+        
+    </LinearLayout>
+
+    <cn.com.grean.listviewinfo.RefreshListView
+        android:id="@+id/lvLogContent"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="40dp"
+        android:background="#ffffffff"
+        android:divider="#cccccc"
+        android:dividerHeight="1dp"
+        android:textColor="#ffff0000"
+         >
+    </cn.com.grean.listviewinfo.RefreshListView>
+    
+
+</LinearLayout>

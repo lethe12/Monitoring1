@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Monitoring</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="software_versions">软件版本 1.0.1.170622a</string>
+
+</resources>

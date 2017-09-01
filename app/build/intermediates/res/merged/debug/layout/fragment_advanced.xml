@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/unselectedGray" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white" >
+
+        <TextView
+            android:id="@+id/TextView01"
+            style="@style/StringStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"
+            android:text="脚本名称:" />
+
+        <Spinner
+            android:id="@+id/spAdvanceScriptNames"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp" />
+		
+        <TextView
+            style="@style/StringStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:text="量程:" />
+        
+        <Spinner
+            android:id="@+id/spAdvanceChooseRanges"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp" />
+        
+        <Button
+            android:id="@+id/btnAdvanceLoadScript"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="导入脚本"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnAdvanceViewScript"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="查看脚本"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white" >
+
+        <TextView
+            style="@style/StringStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:text="仪器参数:" />
+
+        <Spinner
+            android:id="@+id/spAdvanceChooseDevice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp" />
+        
+        
+
+        
+
+        <TextView
+            style="@style/StringStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:text="通讯协议:" />
+
+        <Spinner
+            android:id="@+id/spAdvanceChooseProtocol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white" >
+
+        <TextView
+            style="@style/StringStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:text="设备参数:" />
+
+        <Spinner
+            android:id="@+id/spVirualDevicesParams"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp" />
+
+        <EditText
+            android:id="@+id/etVritualDevicesParams"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:ems="6"
+            android:text="0"
+            android:inputType="numberDecimal"
+            android:maxLength="6" >
+        </EditText>
+
+        <Button
+            android:id="@+id/btnSaveVirtualDevicesParams"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="确认"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnEnableVirtualDevices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="使能虚拟设备"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:text="校准斜率下限"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/etAdvanceSlopeFloor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:ems="3"
+            android:maxLength="5"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:text="校准斜率上限"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/etAdvanceSlopeUpper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:ems="3"
+            android:maxLength="5"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:text="校准截距下限"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/etAdvanceInterceptFloor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:ems="3"
+            android:maxLength="5"
+            android:inputType="numberSigned" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:text="校准截距上限"
+            android:textColor="@android:color/black"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/etAdvanceinterceptUpper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:ems="3"
+            android:maxLength="5"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@color/white" >
+
+        <Button
+            android:id="@+id/btnAdvanceSaveCalParams"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="保存参数"
+            android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/btnAdvancesChangePassWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="修改密码"
+            android:textSize="30sp" />
+        
+        <EditText
+            android:id="@+id/etAdvanceUpdataUri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:ems="20"
+            android:maxLength="50"
+            android:text="http://grean.com.cn:8080/123.apk"
+            android:inputType= "textUri"/>
+        
+        <Button
+            android:id="@+id/btnAdvancesSaveUri"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/selector_red_corners_button"
+            android:text="保存URI"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ListView
+            android:id="@+id/lvScriptContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp" >
+
+        </ListView>
+
+    </LinearLayout>
+
+</LinearLayout>

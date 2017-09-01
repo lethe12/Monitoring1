@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_launcher.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_launcher.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\warning_image.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-xxhdpi\\warning_image.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\warning_image.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-xxhdpi\\warning_image.png"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\error_image.png",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\drawable-xxhdpi\\error_image.png"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\error_image.png",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\drawable-xxhdpi\\error_image.png"
+    }
+]

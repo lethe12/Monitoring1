@@ -1,0 +1,178 @@
+[
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\listview_footer.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\listview_footer.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\script_listview.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\script_listview.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_log.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\activity_log.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_system.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_system.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_log.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\activity_log.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_history.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_history.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\listview_header.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\listview_header.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_communication.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_communication.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\download_dialog.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\download_dialog.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_maintenance.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_maintenance.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_advanced.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_advanced.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\script_listview.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\script_listview.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_warning.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_warning.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_history.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_history.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_operation.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\activity_operation.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_measure.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\activity_measure.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_measure.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_measure.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\my_spnner.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\my_spnner.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_operation.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\activity_operation.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\date_time_dialog.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\date_time_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_maintenance.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_maintenance.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\system_spnner.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\system_spnner.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\my_spnner.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\my_spnner.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_communication.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_communication.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\listview_footer.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\listview_footer.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_measure.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\activity_measure.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_warning.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_warning.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_setting.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\activity_setting.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\download_dialog.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\download_dialog.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\date_time_dialog.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\date_time_dialog.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_system.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_system.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\system_spnner.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\system_spnner.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_calculate.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_calculate.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_setting.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\activity_setting.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_log.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_log.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_measure.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_measure.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_calibration.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_calibration.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_advanced.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_advanced.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\listview_header.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\listview_header.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_calculate.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_calculate.xml"
+    },
+    {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_calibration.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_calibration.xml"
+    },
+    {
+        "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_log.xml",
+        "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_log.xml"
+    }
+]
