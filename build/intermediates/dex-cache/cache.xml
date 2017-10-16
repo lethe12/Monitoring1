@@ -3,30 +3,30 @@
 
     <item
         is-multidex="false"
-        jar="D:\Program Files\Android\Android Studio\gradle\m2repository\com\google\protobuf\protobuf-java\3.0.0\protobuf-java-3.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6d325aa7c921661d84577c0a93d82da4df9fa4c8">
-        <dex dex="D:\work\android\Monitoring1\app\build\intermediates\pre-dexed\debug\protobuf-java-3.0.0_7ec54596d83d7b1f542cd16f7259cabad6b7bcdd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="D:\work\android\Monitoring1\app\libs\mpandroidchartlibrary-2-1-4.jar"
+        jar="C:\Users\weifeng\AndroidStudioProjects\Monitoring1\app\libs\mpandroidchartlibrary-2-1-4.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="952d6628da280edb2bbb66a0848f8d79d3587df5">
-        <dex dex="D:\work\android\Monitoring1\app\build\intermediates\pre-dexed\debug\mpandroidchartlibrary-2-1-4_e86dc2381c8cad5353018986d1addf04abc83ac1.jar" />
+        <dex dex="C:\Users\weifeng\AndroidStudioProjects\Monitoring1\app\build\intermediates\pre-dexed\debug\mpandroidchartlibrary-2-1-4_59b3a8ed1435a059b241f409ca27319f4a7a5565.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="D:\Android\Android\android-sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
+        jar="C:\Users\weifeng\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.2"
         sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
-        <dex dex="D:\work\android\Monitoring1\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_8c8414b5111dc182b2717bc2a8d83d23b850e090.jar" />
+        <dex dex="C:\Users\weifeng\AndroidStudioProjects\Monitoring1\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_8c1fd1b6ee94a6c706c3f35d2bf1e1ded5e4e40c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Program Files\Android\Android Studio\gradle\m2repository\com\google\protobuf\protobuf-java\3.0.0\protobuf-java-3.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6d325aa7c921661d84577c0a93d82da4df9fa4c8">
+        <dex dex="C:\Users\weifeng\AndroidStudioProjects\Monitoring1\app\build\intermediates\pre-dexed\debug\protobuf-java-3.0.0_4fd6a0d98217991136967ea1d9847e05675b8b79.jar" />
     </item>
 
 </items>
