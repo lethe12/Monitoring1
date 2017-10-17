@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/unselectedGray" >
 
@@ -1074,8 +1075,56 @@
                     android:textSize="20sp"
                     android:background="@drawable/selector_red_corners_button"/>
             </LinearLayout>
-            
-            <LinearLayout 
+
+			<LinearLayout
+				android:id="@+id/LinearLayoutRobotArmState"
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:layout_marginTop="20dp"
+				android:layout_weight="1"
+				android:background="@android:color/white"
+				android:orientation="horizontal">
+
+				<Switch
+					android:id="@+id/swOperateSacnRobotArm"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="5dp"
+					android:layout_marginLeft="40dp"
+					android:layout_marginRight="5dp"
+					android:layout_marginTop="5dp"
+					android:text="机械臂位置扫描"
+					android:textColor="@color/black"
+					android:textSize="18sp" />
+
+				<TextView
+					android:id="@+id/tvOperateRobotArmPos"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_marginBottom="5dp"
+					android:layout_marginLeft="5dp"
+					android:layout_marginRight="20dp"
+					android:layout_marginTop="5dp"
+					android:text="None"
+					android:textColor="@color/black"
+					android:textSize="18sp" />
+
+				<Button
+					android:id="@+id/btnOperateTest1"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="Pose1" />
+
+				<Button
+					android:id="@+id/btnOperateTest2"
+					android:layout_width="wrap_content"
+					android:layout_height="wrap_content"
+					android:layout_weight="1"
+					android:text="Pose2" />
+			</LinearLayout>
+
+			<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp" 

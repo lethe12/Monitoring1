@@ -38,12 +38,12 @@ public class DetailLogManager implements DetailLogManagerModel{
 		try {
 			
 			List<String>list = new ArrayList<String>();
-			String pathName = "/storage/udisk1/disk-1/GREAN/"; // /storage/sdcard0/GREAN/
+			String pathName = "/storage/usbhost1/"; // /storage/sdcard0/GREAN/
 			String fileName = "日志.txt";
 			String fileName1 = "数据.txt";
 			String fileName2 = "详细数据.txt";
 			File path = new File(pathName);
-			File file = new File(pathName + fileName);
+			File file = new File(pathName+fileName);
 			File file1 = new File(pathName + fileName1);
 			File file2 = new File(pathName + fileName2);
 			if (!path.exists()) {

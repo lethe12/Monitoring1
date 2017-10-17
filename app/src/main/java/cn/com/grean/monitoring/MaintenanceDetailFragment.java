@@ -3,6 +3,8 @@ package cn.com.grean.monitoring;
 import cn.com.grean.EquipmentData;
 import cn.com.grean.Presenter.DetailMaintenancePresenter;
 import cn.com.grean.Presenter.MaintenanceDetail;
+import cn.com.grean.RobotArm.RobotArmManipulator;
+import cn.com.grean.RobotArm.RobotArmManipulatorListener;
 import cn.com.grean.script.ScriptRun;
 import cn.com.grean.script.instruction.DevicesData;
 import android.app.Fragment;
@@ -10,6 +12,8 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,12 +21,13 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-public class MaintenanceDetailFragment extends Fragment implements MaintenanceDetailView,OnClickListener{
-	private final static String tag = "MaintenanceDetailFragment";
+public class MaintenanceDetailFragment extends Fragment implements MaintenanceDetailView,OnClickListener,RobotArmManipulatorListener{
+	private final static String tag = "MaintenanceDetail";
 	private Button btnInit;
 	private Button btnClear;
 	private ToggleButton tbChangMaintenanceModel;
@@ -41,7 +46,29 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 	private EditText [] etPumpParams = new EditText[4];
 	private Button [] btnPumpParams = new Button[4];
 	private View [] pumpView = new View[4];
+	private Switch swRobotArmScan;
+	private TextView tvRobotArmPos;
+
 	private DetailMaintenancePresenter presenter;
+	private RobotArmManipulator robotArm;
+
+	private Button test1,test2;
+
+	private String robotArmStateString;
+	private static final int msgShowRobotState = 1;
+	private Handler handler = new Handler(){
+		@Override
+		public void handleMessage(Message msg) {
+			switch (msg.what){
+				case msgShowRobotState:
+					tvRobotArmPos.setText(robotArmStateString);
+					break;
+				default:
+					break;
+
+			}
+		}
+	};
 	
 	public MaintenanceDetailFragment() {
 		// TODO 自动生成的构造函数存根
@@ -54,6 +81,8 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 		initView(view);
 		presenter = new MaintenanceDetail(this);
 		presenter.showInfo();
+		robotArm = new RobotArmManipulator(this);
+		swRobotArmScan.setChecked(robotArm.isScanRun());
 		//Log.d(tag, "onCreateView="+String.valueOf(tbChangMaintenanceModel.isShown()));
 		return view;
 	}
@@ -131,6 +160,15 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 		pumpView[1] = v.findViewById(R.id.linearLayoutPump2);
 		pumpView[2] = v.findViewById(R.id.linearLayoutPump3);
 		pumpView[3] = v.findViewById(R.id.linearLayoutPump4);
+		swRobotArmScan = (Switch) v.findViewById(R.id.swOperateSacnRobotArm);
+		tvRobotArmPos = (TextView) v.findViewById(R.id.tvOperateRobotArmPos);
+
+		test1 = (Button) v.findViewById(R.id.btnOperateTest1);
+		test2 = (Button) v.findViewById(R.id.btnOperateTest2);
+		test1.setOnClickListener(this);
+		test2.setOnClickListener(this);
+
+		swRobotArmScan.setOnClickListener(this);
 		btnInit.setOnClickListener(this);
 		btnClear.setOnClickListener(this);
 		tbChangMaintenanceModel.setOnClickListener(this);
@@ -179,7 +217,7 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 	@Override
 	public void showMaintenanceDetail(EquipmentData data) {
 		// TODO 自动生成的方法存根
-		Log.d(tag, "载入"+String.valueOf(data.isMaintance()));
+		//Log.d(tag, "载入"+String.valueOf(data.isMaintance()));
 		tbChangMaintenanceModel.setChecked(data.isMaintance());
 		for (int i = 0; i < tbValveSwich.length; i++) {
 			if (data.getValveState(i)) {	
@@ -246,9 +284,16 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 		intent.setAction("maintanceSign");
 		intent.putExtra("key", false);
 		getActivity().sendBroadcast(intent);*/
+		robotArm.stopScan();
 		super.onDestroy();
 	}
-	
+
+	@Override
+	public void showRealTimePos(String string) {
+		robotArmStateString = string;
+		handler.sendEmptyMessage(msgShowRobotState);
+	}
+
 	class ReadState extends AsyncTask<String, Void, Object>{
 		private ProgressDialog pd;  
 
@@ -309,6 +354,13 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 	public void onClick(View v) {
 		// TODO 自动生成的方法存根
 		switch (v.getId()) {
+		case R.id.swOperateSacnRobotArm:
+				if(swRobotArmScan.isChecked()){
+					robotArm.startScan();
+				}else {
+					robotArm.stopScan();
+				}
+				break;
 		case R.id.btnOperateInit:
 			if (presenter.init()) {
 				Toast.makeText(getActivity(), "开始初始化", Toast.LENGTH_SHORT).show();
@@ -483,6 +535,12 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 		case R.id.btnStartPump4:
 			presenter.startPump(4,Integer.valueOf(etPumpRound[3].getText().toString()) , Integer.valueOf(etPumpTime[3].getText().toString()));
 			break;
+			case R.id.btnOperateTest1:
+				robotArm.jump2Pose(150,-139,14);
+				break;
+			case R.id.btnOperateTest2:
+				robotArm.jump2Pose(45,-246,-35);
+				break;
 		default:
 			break;
 		}

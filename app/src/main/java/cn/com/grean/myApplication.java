@@ -515,11 +515,11 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
 	public EquipmentInfo getEquipmentInfo(){
 		//Log.d(tag, "name="+devicesName);
 		if (equipmentInfo == null) {			
-			if (devicesName.equals("TN")||devicesName.equals("TNDual")) {
+			if (devicesName.equals("TN")) {
 				equipmentInfo = new TnEquipmentInfo();
 
-			}else if (devicesName.equals("CLDPD")) {
-				equipmentInfo = new TnEquipmentInfo();
+			}else if (devicesName.equals("Glyphosate")) {
+				equipmentInfo = new GlyphosateEquipmentInfo();
 			}else {
 				equipmentInfo = new TnEquipmentInfo();
 			}
@@ -582,25 +582,17 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
 		if (devicesName.equals("TN")) {
 			return "总氮";
 		}
-		else if (devicesName.equals("TNDual")) {
-			return "总氮";
-		}
 		else  if(devicesName.equals("TP")){
 			 return "总磷";
 		}
-		else if (devicesName.equals("CODMN")) {
-			return "高锰酸盐指数";
-		}
-		else if(devicesName.equals("NH4OHA")){
+		else if(devicesName.equals("NH4")){
 			return "氨氮";
 		}
-		else if (devicesName.equals("NH4GSE")) {
-			return "氨氮";
-		}
-		else if (devicesName.equals("CLDPD")) {
-			return "余氯";
-		}
-		else {
+		else if (devicesName.equals("Glyphosate")) {
+			return "草甘膦";
+		}else if(devicesName.equals("Microcystis")){
+			return "微囊藻毒素";
+		}else {
 			return "NONE";
 		}
 	}

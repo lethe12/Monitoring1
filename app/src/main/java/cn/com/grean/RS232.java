@@ -28,36 +28,8 @@ public class RS232 extends SerialPortCommunication implements CommandSerialPort,
 	@Override
 	protected Boolean handleBuffer() {
 		// TODO 自动生成的方法存根
-		if (buf[0]==0x01) {//确认帧头开始计数
-			if (times<2) {//如果连续收到，则拼接
-				System.arraycopy(buf, 0, mybuf, mysize, size);
-				mysize+=size;					
-			}
-			else {
-				times = 0;//超过500ms认为是新数据，重新计数
-				mysize = size;
-				System.arraycopy(buf, 0, mybuf, 0, size);
-			}
-			
-		}
-		else {		
-			if (times > 10) {
-				mysize = 0;
-				times = 0;//超过500ms认为是新数据，重新计数
-			}
-			
-			if((mysize+size) > 512){
-				mysize = 0;
-				return false;
-			}
-			else {
-				System.arraycopy(buf, 0, mybuf, mysize, size);
-				mysize+=size;
-			}
-		}
-		
-		if (mysize >= 6) {
-			if ((mybuf[0] == 0x01)&&(mybuf[mysize-2]==0x0D)&&(mybuf[mysize-1]==0x0A)) {
+		if (size >= 6) {
+			if ((mybuf[0] == 0x01)&&(mybuf[size-2]==0x0D)&&(mybuf[size-1]==0x0A)) {
 				return true;
 			}
 			else {

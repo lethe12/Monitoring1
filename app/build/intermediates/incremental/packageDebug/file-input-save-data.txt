@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Mon Oct 16 12:58:41 CST 2017
+#Tue Oct 17 18:29:57 CST 2017
 5.base=C\:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 42.base=C\:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\transforms\\stripDebugSymbol\\debug\\folders\\2000\\1f\\main
 32.set=ANDROID_RESOURCE

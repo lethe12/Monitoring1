@@ -270,18 +270,36 @@ import android.annotation.SuppressLint;
 		return fnum.format(data); 
 	}
 	/*
+	* 高字节在前
 	 * 162. * 通过byte数组取得float 163. * 164. * @param bb 165. * @param index 166. * @return
 	 * 167.
 	 */
 	public static float getFloat(byte[] b, int index) {
 		int l;
+		l = b[index + 3];
+		l &= 0xff;
+		l |= ((long) b[index + 2] << 8);
+		l &= 0xffff;
+		l |= ((long) b[index + 1] << 16);
+		l &= 0xffffff;
+		l |= ((long) b[index + 0] << 24);
+		return Float.intBitsToFloat(l);
+	}
+
+	/*
+	*低字节在前
+	 * 162. * 通过byte数组取得float 163. * 164. * @param bb 165. * @param index 166. * @return
+	 * 167.
+	 */
+	public static float getFloatReversedOder(byte[] b, int index) {
+		int l;
 		l = b[index + 0];
 		l &= 0xff;
-		l |= ((long) b[index - 1] << 8);
+		l |= ((long) b[index + 1] << 8);
 		l &= 0xffff;
-		l |= ((long) b[index - 2] << 16);
+		l |= ((long) b[index + 2] << 16);
 		l &= 0xffffff;
-		l |= ((long) b[index - 3] << 24);
+		l |= ((long) b[index + 3] << 24);
 		return Float.intBitsToFloat(l);
 	}
 	

@@ -32,7 +32,7 @@ public abstract class SerialPortCommunication {
 	protected byte[] buf = new byte[512];
 	protected byte[] mybuf = new byte[512];
 	protected int size;
-	protected int mysize;
+	//protected int mysize;
 	protected int times=0;
 	private String strRecData = "";
 	private ReadThhread readThhread;
@@ -160,16 +160,12 @@ public abstract class SerialPortCommunication {
 							wait(50);
 						}
 					}
-					
-					
 				} catch (Exception e) {
 					// TODO: handle exception
 				}
 				finally{
 					lock.unlock();
 				}
-				
-				
 				try {
 					Thread.sleep(50);
 				} catch (InterruptedException e) {
@@ -177,9 +173,7 @@ public abstract class SerialPortCommunication {
 					e.printStackTrace();
 				}
 			}
-			
 		}
-		
 	}
 	
 	/*
@@ -187,69 +181,77 @@ public abstract class SerialPortCommunication {
 	 * */
 	
 	private class ReadThhread extends Thread{
-		
 		@Override
 		public void run() {
 			// TODO 自动生成的方法存根
 			super.run();
-			mysize=0;
+			//mysize=0;
 			while (!isInterrupted()) {				
 				if (mInputStream == null)
 					return;
-				
-				try {
-					
-					while(!isInterrupted()){
-						
-						//synchronized (readThhread) {
-						//buf = new byte[512];
-						size = mInputStream.read(buf);
-						if (size>0) {
-							if (handleBuffer()) {
-								lock.lock();
-								try {
-									
-									if (flag) {
-										Log.d(tag, "同步通讯");
-										CommunicationProtocal(mybuf,mysize);
-										flag = false;
-										cond.signalAll();
-									}
-									else {
-										Log.d(tag, "异步通讯");
-										AsynchronousCommunicationProtocal(mybuf,mysize);
-									}
-								} catch (Exception e) {
-									// TODO: handle exception
-									
-								}
-								finally{
-									lock.unlock();
-								}
-								
-								
-								//String str_s = tools.bytesToHexString(mybuf, mysize);
-								String str_s = tools.bytesToHexString(buf, size);
 
-								strRecData = strRecData + str_s;
-								Log.d(tag, "串口处理完<-" +strRecData + " size" + Integer.toString(size));
-								strRecData = "";
-							}
-							else {							
-								String str_s = tools.bytesToHexString(buf, size);
-								strRecData = strRecData + str_s;
-								Log.d(tag,"串口收到<-" +  strRecData + " size" + Integer.toString(size));						
-								strRecData = "";	
-							}
-						}
-						//}
-					}
-					//Log.d("RS232", "2");
-					
-				} catch (IOException e1) {
-					// TODO 自动生成的 catch 块
-					e1.printStackTrace();
-				}
+				while(!isInterrupted()){
+
+                    try {
+                        while (mInputStream.available()==0){
+                            Thread.sleep(50);
+                        }
+                        Thread.sleep(100);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                    //synchronized (readThhread) {
+                    //buf = new byte[512];
+                    try {
+                        size = mInputStream.read(buf);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                    if (size>0) {
+                        if (handleBuffer()) {
+                            lock.lock();
+                            try {
+
+                                if (flag) {
+                                    //Log.d(tag, "同步通讯");
+                                    CommunicationProtocal(buf,size);
+                                    flag = false;
+                                    cond.signalAll();
+                                }
+                                else {
+                                    //Log.d(tag, "异步通讯");
+                                    AsynchronousCommunicationProtocal(buf,size);
+                                }
+                            } catch (Exception e) {
+                                // TODO: handle exception
+
+                            }
+                            finally{
+                                lock.unlock();
+                            }
+
+
+
+                            String str_s = tools.bytesToHexString(buf, size);
+
+                            strRecData = strRecData + str_s;
+                            Log.d(tag, "串口处理完<-" +strRecData + " size" + Integer.toString(size));
+                            strRecData = "";
+                        }
+                        else {
+                            /*String str_s = tools.bytesToHexString(buf, size);
+                            strRecData = strRecData + str_s;
+                            Log.d(tag,"串口收到<-" +  strRecData + " size" + Integer.toString(size));
+                            strRecData = "";*/
+                        }
+                    }
+                    //}
+                }
+				//Log.d("RS232", "2");
 				
 				
 				/*try {

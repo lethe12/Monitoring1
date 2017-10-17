@@ -17,47 +17,18 @@ public class RS485 extends SerialPortCommunication{
 	
 	private RS485() {
 		// TODO 自动生成的构造函数存根		
-		super(1, 8, 9600, 1, 'n');		
+		super(3, 8, 9600, 1, 'n');
 	}
 
 	public void setSeriPort(int BDrate){
-		ChangeSerialPort(1,8,BDrate,1,'n');		
+		ChangeSerialPort(3,8,BDrate,1,'n');
 	}
 	
 	@Override
 	protected Boolean handleBuffer() {
 		// TODO 自动生成的方法存根
-		if (buf[0]==address) {//确认帧头开始计数
-			if (times<2) {//如果连续收到，则拼接
-				System.arraycopy(buf, 0, mybuf, mysize, size);
-				mysize+=size;					
-			}
-			else {
-				times = 0;//超过500ms认为是新数据，重新计数
-				mysize = size;
-				System.arraycopy(buf, 0, mybuf, 0, size);
-			}
-			
-		}
-		else {		
-			if (times > 10) {
-				mysize = 0;
-				times = 0;//超过500ms认为是新数据，重新计数
-			}
-			
-			if((mysize+size) > 512){
-				mysize = 0;
-				return false;
-			}
-			else {
-				System.arraycopy(buf, 0, mybuf, mysize, size);
-				mysize+=size;
-			}
-		}
-		
-		if (mysize > 6) {	
+		if (size > 6) {
 			return true;
-			
 		}
 		else {
 			return false;
