@@ -74,4 +74,14 @@ public class CldpdEquipmentInfo implements EquipmentInfo{
 		// TODO 自动生成的方法存根
 		return "None";
 	}
+
+	@Override
+	public boolean hasRobotArm() {
+		return false;
+	}
+
+	@Override
+	public boolean hasInjectionPump() {
+		return false;
+	}
 }

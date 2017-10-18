@@ -90,6 +90,16 @@ public class TnEquipmentInfo implements EquipmentInfo{
 	}
 
 	@Override
+	public boolean hasRobotArm() {
+		return false;
+	}
+
+	@Override
+	public boolean hasInjectionPump() {
+		return false;
+	}
+
+	@Override
 	public void setVirtualDevices(int pos, String params, CommandSerialPort com) {
 		// TODO 自动生成的方法存根
 		/*if (pos<2) {

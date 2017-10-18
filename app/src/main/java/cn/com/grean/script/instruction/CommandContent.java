@@ -19,53 +19,41 @@ public class CommandContent {
 	public static Command getCommand(String type){
 		if(type.equals("Pump")){
 			return new PumpCommand();
-		}
-		else if (type.equals("Valve")) {
+		}else if (type.equals("Valve")) {
 			return new ValveCommand();
-		}
-		else if (type.equals("Sleep")) {
+		}else if (type.equals("Sleep")) {
 			return new SleepCommand();
-		}
-		else if (type.equals("CH")) {
+		}else if (type.equals("CH")) {
 			return new CHxCommand();
-		}
-		else if (type.equals("Note")) {
+		}else if (type.equals("Note")) {
 			return new NoteCommand();
-		}
-		else if(type.equals("BackTitration")){
+		}else if(type.equals("BackTitration")){
 			return new TitrationCommand();
-		}
-		else if (type.equals("Read")||type.equals("READ")) {
+		}else if (type.equals("Read")||type.equals("READ")) {
 			return new ReadCommand();
-		}
-		else if (type.equals("VD")) {
+		}else if (type.equals("VD")) {
 			return new VirtualDeviceCommand();
-		}
-		else if (type.equals("Level")) {
+		}else if (type.equals("Level")) {
 			return new LevelCommand();
-		}
-		else if (type.equals("AllCH")) {
+		}else if (type.equals("AllCH")) {
 			return new AllchCommand();
-		}
-		else if (type.equals("Mean")) {
+		}else if (type.equals("Mean")) {
 			return new MeanConmmand();
-		}
-		else if (type.equals("Average")) {
+		}else if (type.equals("Average")) {
 			return new AverageCommand();
-		}
-		else if (type.equals("TNAverage")) {
+		}else if (type.equals("TNAverage")) {
 			return new TNAverageCommand();
-		}
-		else if (type.equals("Lap")) {
+		}else if (type.equals("Lap")) {
 			return new LapCommand();
-		}
-		else if (type.equals("PumpZQ")) {
+		}else if (type.equals("PumpZQ")) {
 			return new PumpZQCommand();
-		}
-		else if (type.equals("CheckWarring")) {
+		}else if (type.equals("CheckWarring")) {
 			return new CheckWarringCommand();
-		}
-		else {
+		}else if(type.equals("Pose")){
+			return new PoseCommand();
+		}else if(type.equals("PoseZero")){
+            return new PoseZeroCommand();
+        }else{
 			return new NonCommand();
 		}
 		

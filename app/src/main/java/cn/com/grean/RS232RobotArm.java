@@ -21,7 +21,7 @@ public class RS232RobotArm extends SerialPortCommunication implements CommandSer
     }
 
     private RS232RobotArm(){
-        super(1, 8, 115200, 1, 'n');//默认串口0 116200 8  无  1
+        super(1, 8, 115200, 1, 'n');//默认串口0 115200 8  无  1
 
     }
 
@@ -71,6 +71,10 @@ public class RS232RobotArm extends SerialPortCommunication implements CommandSer
     @Override
     protected void AsynchronousCommunicationProtocal(byte[] rec, int len) {
 
+    }
+
+    public RobotArmState getState() {
+        return state;
     }
 
     @Override

@@ -42,7 +42,7 @@ public interface Command {
 
 	/**
 	 * 执行中间命令
-	 * @return
+	 * @return true 跳出循环 false 继续循环
 	 */
 	public boolean RepetitiveExecute ();
 	/** 

@@ -51,17 +51,24 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 
 	private DetailMaintenancePresenter presenter;
 	private RobotArmManipulator robotArm;
+	private TextView[] tvPose = new TextView[20];
+	private EditText etPoseNum;
+	private Button btnZeroPose,btnSetZeroPose,btnSavePose,test1,test2;
+	private ClickPose clickPose;
 
-	private Button test1,test2;
-
-	private String robotArmStateString;
+	private String robotArmStateString,PoseString;
+	private int showPoseNum;
 	private static final int msgShowRobotState = 1;
+	private static final int msgShowPose = 2;
 	private Handler handler = new Handler(){
 		@Override
 		public void handleMessage(Message msg) {
 			switch (msg.what){
 				case msgShowRobotState:
 					tvRobotArmPos.setText(robotArmStateString);
+					break;
+				case msgShowPose:
+					tvPose[showPoseNum].setText(PoseString);
 					break;
 				default:
 					break;
@@ -79,11 +86,12 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 		// TODO 自动生成的方法存根
 		View view = inflater.inflate(R.layout.fragment_maintenance, container, false);
 		initView(view);
+		clickPose = new ClickPose(tvPose,view);
 		presenter = new MaintenanceDetail(this);
 		presenter.showInfo();
 		robotArm = new RobotArmManipulator(this);
 		swRobotArmScan.setChecked(robotArm.isScanRun());
-		//Log.d(tag, "onCreateView="+String.valueOf(tbChangMaintenanceModel.isShown()));
+		clickPose.showPoses(robotArm.getLocalPoses());
 		return view;
 	}
 	
@@ -163,11 +171,20 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 		swRobotArmScan = (Switch) v.findViewById(R.id.swOperateSacnRobotArm);
 		tvRobotArmPos = (TextView) v.findViewById(R.id.tvOperateRobotArmPos);
 
+		etPoseNum = (EditText) v.findViewById(R.id.etOperatePoseNum);
+		btnZeroPose = (Button) v.findViewById(R.id.btnOperateZero);
+		btnSetZeroPose = (Button) v.findViewById(R.id.btnOperateSetZero);
+		btnSavePose = (Button) v.findViewById(R.id.btnOperateSavePose);
+
 		test1 = (Button) v.findViewById(R.id.btnOperateTest1);
 		test2 = (Button) v.findViewById(R.id.btnOperateTest2);
 		test1.setOnClickListener(this);
 		test2.setOnClickListener(this);
 
+
+		btnZeroPose.setOnClickListener(this);
+		btnSetZeroPose.setOnClickListener(this);
+		btnSavePose.setOnClickListener(this);
 		swRobotArmScan.setOnClickListener(this);
 		btnInit.setOnClickListener(this);
 		btnClear.setOnClickListener(this);
@@ -292,6 +309,15 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 	public void showRealTimePos(String string) {
 		robotArmStateString = string;
 		handler.sendEmptyMessage(msgShowRobotState);
+	}
+
+	@Override
+	public void showPose(int num, String string) {
+		if((num <= 20)&&(num>0)){
+			showPoseNum = num-1;
+			PoseString = string;
+			handler.sendEmptyMessage(msgShowPose);
+		}
 	}
 
 	class ReadState extends AsyncTask<String, Void, Object>{
@@ -541,8 +567,123 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 			case R.id.btnOperateTest2:
 				robotArm.jump2Pose(45,-246,-35);
 				break;
+			case R.id.btnOperateZero:
+				robotArm.jump2Home();
+				break;
+			case R.id.btnOperateSetZero:
+				robotArm.setHomeParams();
+				break;
+			case R.id.btnOperateSavePose:
+				robotArm.savePose(etPoseNum.getText().toString());
+				break;
 		default:
 			break;
+		}
+	}
+
+	private class ClickPose implements OnClickListener{
+		private TextView [] tvBuff;
+		public void showPoses(String [] strings){
+			if(strings.length==20){
+				for(int i=0;i<20;i++){
+					tvBuff[i].setText(strings[i]);
+				}
+			}
+		}
+
+		public ClickPose (TextView [] tv,View v){
+			if(tv.length == 20){
+				Log.d(tag,"初始化Poses");
+				this.tvBuff = tv;
+				tv[0] = (TextView) v.findViewById(R.id.tvOperatePose11);
+				tv[1] = (TextView) v.findViewById(R.id.tvOperatePose12);
+				tv[2] = (TextView) v.findViewById(R.id.tvOperatePose13);
+				tv[3] = (TextView) v.findViewById(R.id.tvOperatePose14);
+				tv[4] = (TextView) v.findViewById(R.id.tvOperatePose15);
+				tv[5] = (TextView) v.findViewById(R.id.tvOperatePose21);
+				tv[6] = (TextView) v.findViewById(R.id.tvOperatePose22);
+				tv[7] = (TextView) v.findViewById(R.id.tvOperatePose23);
+				tv[8] = (TextView) v.findViewById(R.id.tvOperatePose24);
+				tv[9] = (TextView) v.findViewById(R.id.tvOperatePose25);
+				tv[10] = (TextView) v.findViewById(R.id.tvOperatePose31);
+				tv[11] = (TextView) v.findViewById(R.id.tvOperatePose32);
+				tv[12] = (TextView) v.findViewById(R.id.tvOperatePose33);
+				tv[13] = (TextView) v.findViewById(R.id.tvOperatePose34);
+				tv[14] = (TextView) v.findViewById(R.id.tvOperatePose35);
+				tv[15] = (TextView) v.findViewById(R.id.tvOperatePose41);
+				tv[16] = (TextView) v.findViewById(R.id.tvOperatePose42);
+				tv[17] = (TextView) v.findViewById(R.id.tvOperatePose43);
+				tv[18] = (TextView) v.findViewById(R.id.tvOperatePose44);
+				tv[19] = (TextView) v.findViewById(R.id.tvOperatePose45);
+				for(int i=0;i<20;i++){
+					tv[i].setOnClickListener(this);
+				}
+			}
+		}
+		@Override
+		public void onClick(View v) {
+			switch (v.getId()){
+				case R.id.tvOperatePose11:
+					robotArm.go2Pose(1);
+					break;
+				case R.id.tvOperatePose12:
+					robotArm.go2Pose(2);
+					break;
+				case R.id.tvOperatePose13:
+					robotArm.go2Pose(3);
+					break;
+				case R.id.tvOperatePose14:
+					robotArm.go2Pose(4);
+					break;
+				case R.id.tvOperatePose15:
+					robotArm.go2Pose(5);
+					break;
+				case R.id.tvOperatePose21:
+					robotArm.go2Pose(6);
+					break;
+				case R.id.tvOperatePose22:
+					robotArm.go2Pose(7);
+					break;
+				case R.id.tvOperatePose23:
+					robotArm.go2Pose(8);
+					break;
+				case R.id.tvOperatePose24:
+					robotArm.go2Pose(9);
+					break;
+				case R.id.tvOperatePose25:
+					robotArm.go2Pose(10);
+					break;
+				case R.id.tvOperatePose31:
+					robotArm.go2Pose(11);
+					break;
+				case R.id.tvOperatePose32:
+					robotArm.go2Pose(12);
+					break;
+				case R.id.tvOperatePose33:
+					robotArm.go2Pose(13);
+					break;
+				case R.id.tvOperatePose34:
+					robotArm.go2Pose(14);
+					break;
+				case R.id.tvOperatePose35:
+					robotArm.go2Pose(15);
+					break;
+				case R.id.tvOperatePose41:
+					robotArm.go2Pose(16);
+					break;
+				case R.id.tvOperatePose42:
+					robotArm.go2Pose(17);
+					break;
+				case R.id.tvOperatePose43:
+					robotArm.go2Pose(18);
+					break;
+				case R.id.tvOperatePose44:
+					robotArm.go2Pose(19);
+					break;
+				case R.id.tvOperatePose45:
+					robotArm.go2Pose(20);
+					break;
+			}
 		}
 	}
 	

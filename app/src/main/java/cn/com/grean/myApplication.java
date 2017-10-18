@@ -35,7 +35,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-public class myApplication extends Application implements Observer,ScriptGhostListener,ScriptReader,ComputerListener,WarningInfoListener{
+public class myApplication extends Application implements Observer,ScriptGhostListener,ScriptReader,ComputerListener,WarningInfoListener,LocalConfig{
 	private final static String tag = "myApplication"; 
 	@SuppressWarnings("unused")
 	private RS232 rs232;

@@ -7,5 +7,5 @@ package cn.com.grean.RobotArm;
 
 public interface RobotArmManipulatorListener {
     void showRealTimePos(String string);
-
+    void showPose(int num,String string);
 }

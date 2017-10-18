@@ -68,4 +68,14 @@ public class GlyphosateEquipmentInfo implements EquipmentInfo{
     public String getVirtualDevices(int pos, CommandSerialPort com) {
         return "None";
     }
+
+    @Override
+    public boolean hasRobotArm() {
+        return true;
+    }
+
+    @Override
+    public boolean hasInjectionPump() {
+        return true;
+    }
 }

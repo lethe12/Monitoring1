@@ -43,4 +43,8 @@ public interface EquipmentInfo {
 	 * @return
 	 */
 	String getVirtualDevices(int pos,CommandSerialPort com);
+
+	boolean hasRobotArm();
+
+	boolean hasInjectionPump();
 }
