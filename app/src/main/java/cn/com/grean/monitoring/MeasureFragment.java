@@ -47,7 +47,11 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 	private final static int ShowMaintanceICON = 9;
 	private final static int ShowOffMaintanceICON = 10;
 	//private Button btn_testButton;
-	private TextView tv_result;
+    private TextView[] tvResults = new TextView[8],tvTags=new TextView[8],tvUnits=new TextView[8];
+    private View[] layoutResults = new View[8];
+    private ResultView resultView;
+
+	//private TextView tv_result;
 	private TextView tv_date;
 	private MeasurePresenter measurePresenter;
 	private TextView tv_measure_info;
@@ -115,7 +119,7 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 				myApplication.getInstance().setMeasureInfoData(factory.build());
 				break;
 			case ScriptResultInfo:
-				tv_result.setText(result);
+				//tv_result.setText(result);
 				tv_date.setText("测量时间:"+time);
 				break;
 			case ShowErrorICON:
@@ -166,9 +170,11 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// TODO 自动生成的方法存根
 		//return super.onCreateView(inflater, container, savedInstanceState);
-		View messageLayout = inflater.inflate(R.layout.activity_measure, container, false);  
+		//View messageLayout = inflater.inflate(R.layout.activity_measure, container, false);
+		View messageLayout = inflater.inflate(R.layout.fragment_realtime, container, false);
 		initView(messageLayout);
-		
+		resultView = new ResultView(layoutResults,tvTags,tvResults,tvUnits,myApplication.getInstance().getSampleNumber());
+        resultView.initView(messageLayout);
 		/*btn_testButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -197,8 +203,8 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 		
 		measurePresenter = new MeasurePresenterCompl(this);
 		measurePresenter.fetch();
-		ScriptRun.getInstance().setMeasureView(this);	
-		
+
+		ScriptRun.getInstance().setMeasureView(this);
 		IntentFilter filter_dynamic = new IntentFilter();  
         filter_dynamic.addAction("nextTest");  //更新下次测量时间
         filter_dynamic.addAction("nextCal");//更新下次自动校准时间
@@ -253,7 +259,7 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 	private void initView(View messageLayout){
 		//btn_testButton=(Button) messageLayout.findViewById(R.id.btn_test);
 		tv_date = (TextView) messageLayout.findViewById(R.id.tv_measure_date);
-		tv_result=(TextView) messageLayout.findViewById(R.id.tv_measure_result);
+		//tv_result=(TextView) messageLayout.findViewById(R.id.tvRealTimeResult);
 		tv_measure_info=(TextView) messageLayout.findViewById(R.id.tv_measure_info);
 		pb_measure = (ProgressBar) messageLayout.findViewById(R.id.pb_measure_progress);
 		tv_name = (TextView) messageLayout.findViewById(R.id.tv_devices_name);
@@ -274,7 +280,7 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 	public void showMeasureInfo(MeasureInfo measureInfo) {
 		// TODO 自动生成的方法存根
 		tv_date.setText(measureInfo.getDateString());
-		tv_result.setText(measureInfo.getResultString());
+		//tv_result.setText(measureInfo.getResultString());
 		tv_name.setText(measureInfo.getDevicesName());
 		tv_nextTest.setText(measureInfo.getAutoTestDateString());
 		tv_nextCal.setText(measureInfo.getAutoCalDateString());
@@ -284,7 +290,7 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 			pb_measure.setMax(data.getProMax());
 			pb_measure.setProgress(data.getProCount());
 		}
-		
+        resultView.showMeasureInfo(measureInfo);
 	}
 
 	@Override
@@ -471,7 +477,6 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 			// TODO 自动生成的方法存根
 			//设置线程优先级为后台，这样当多个线程并发后很多无关紧要的线程分配的CPU时间将会减少，有利于主线程的处理   
 			android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_BACKGROUND);
-			
 			//具体下载方法
 	        startDownload();
 		}
@@ -537,4 +542,90 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 			break;
 		}
 	}
+
+	private class ResultView{
+        private View[] views;
+        private TextView [] tags,results,units;
+        private int sampleNumber;
+        public ResultView(View [] views,TextView [] tags,TextView [] results,TextView [] units,int sampleNumber){
+            this.views = views;
+            this.tags = tags;
+            this.results = results;
+            this.units = units;
+            this.sampleNumber = sampleNumber;
+        }
+
+        public void initView(View v){
+            views[0] = v.findViewById(R.id.layoutResultRow);
+            views[1] = v.findViewById(R.id.layoutResult12);
+            views[2] = v.findViewById(R.id.layoutResult13);
+            views[3] = v.findViewById(R.id.layoutResult14);
+            views[4] = v.findViewById(R.id.layoutResult21);
+            views[5] = v.findViewById(R.id.layoutResult22);
+            views[6] = v.findViewById(R.id.layoutResult23);
+            views[7] = v.findViewById(R.id.layoutResult24);
+
+            tags[0] = (TextView) v.findViewById(R.id.tvRealTimeTag);
+            tags[1] = (TextView) v.findViewById(R.id.tvRealTimeTag12);
+            tags[2] = (TextView) v.findViewById(R.id.tvRealTimeTag13);
+            tags[3] = (TextView) v.findViewById(R.id.tvRealTimeTag14);
+            tags[4] = (TextView) v.findViewById(R.id.tvRealTimeTag21);
+            tags[5] = (TextView) v.findViewById(R.id.tvRealTimeTag22);
+            tags[6] = (TextView) v.findViewById(R.id.tvRealTimeTag23);
+            tags[7] = (TextView) v.findViewById(R.id.tvRealTimeTag24);
+
+            results[0] = (TextView) v.findViewById(R.id.tvRealTimeResult);
+            results[1] = (TextView) v.findViewById(R.id.tvRealTimeResult12);
+            results[2] = (TextView) v.findViewById(R.id.tvRealTimeResult13);
+            results[3] = (TextView) v.findViewById(R.id.tvRealTimeResult14);
+            results[4] = (TextView) v.findViewById(R.id.tvRealTimeResult21);
+            results[5] = (TextView) v.findViewById(R.id.tvRealTimeResult22);
+            results[6] = (TextView) v.findViewById(R.id.tvRealTimeResult23);
+            results[7] = (TextView) v.findViewById(R.id.tvRealTimeResult24);
+
+            units[0] = (TextView) v.findViewById(R.id.tvRealTimeUnit);
+            units[1] = (TextView) v.findViewById(R.id.tvRealTimeUnit12);
+            units[2] = (TextView) v.findViewById(R.id.tvRealTimeUnit13);
+            units[3] = (TextView) v.findViewById(R.id.tvRealTimeUnit14);
+            units[4] = (TextView) v.findViewById(R.id.tvRealTimeUnit21);
+            units[5] = (TextView) v.findViewById(R.id.tvRealTimeUnit22);
+            units[6] = (TextView) v.findViewById(R.id.tvRealTimeUnit23);
+            units[7] = (TextView) v.findViewById(R.id.tvRealTimeUnit24);
+        }
+
+        public void showMeasureInfo(MeasureInfo info){
+            switch (sampleNumber){
+                case 2:
+                    tags[0].setTextSize(18);
+                    results[0].setTextSize(80);
+                    units[0].setTextSize(20);
+                    tags[1].setTextSize(18);
+                    results[1].setTextSize(80);
+                    units[1].setTextSize(20);
+                    views[2].setVisibility(View.GONE);
+                    views[3].setVisibility(View.GONE);
+                    views[0].setVisibility(View.GONE);
+                    break;
+                case 4:
+                    views[2].setVisibility(View.GONE);
+                    views[3].setVisibility(View.GONE);
+                    views[6].setVisibility(View.GONE);
+                    views[7].setVisibility(View.GONE);
+                    break;
+                case 8:
+
+                    break;
+                case 1:
+                default:
+                    tags[0].setTextSize(36);
+                    results[0].setTextSize(160);
+                    units[0].setTextSize(40);
+                    for(int i=0;i<8;i++){
+                        views[i].setVisibility(View.GONE);
+                    }
+                    break;
+            }
+        }
+
+    }
 }

@@ -8,7 +8,7 @@ import cn.com.grean.script.instruction.DevicesData;
  *
  */
 public class EquipmentData {
-	private boolean isMaintance = false;
+	private boolean isMaintance = false,hasRobotArm=false,hasInjectionPump=false;
 	private boolean [] pumpEnable = new boolean[4];//蠕动泵使能表
 	private boolean [] valveEnable = new boolean[28];//电磁阀使能表
 	private boolean [] valveState = new boolean[28];
@@ -102,4 +102,19 @@ public class EquipmentData {
 		}
 	}
 
+	public boolean isHasRobotArm() {
+		return hasRobotArm;
+	}
+
+	public void setHasRobotArm(boolean hasRobotArm) {
+		this.hasRobotArm = hasRobotArm;
+	}
+
+	public boolean isHasInjectionPump() {
+		return hasInjectionPump;
+	}
+
+	public void setHasInjectionPump(boolean hasInjectionPump) {
+		this.hasInjectionPump = hasInjectionPump;
+	}
 }

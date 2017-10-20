@@ -10,7 +10,8 @@ import cn.com.grean.script.instruction.CommandSerialPort;
 public class InjectionPumpManipulator {
     private CommandSerialPort com;
     private InjectionPumpManipulatorListener listener;
-    private static final String initCmd ="/"+"1Z/n";
+    public static final String initCmd ="/"+"12ZR"+"\r";
+    public static final int InjectionPumpMaxPos=1000;
     public InjectionPumpManipulator(InjectionPumpManipulatorListener listener){
         this.listener = listener;
         com = RS232InjectionPump.getInstance();
@@ -22,14 +23,21 @@ public class InjectionPumpManipulator {
     }
 
     public void go2Pose(boolean valve,int pos){
-        String cmd="/";
-        if(valve){
-            cmd+="I";
-        }else{
-            cmd+="O";
+        if(pos <=InjectionPumpMaxPos) {
+            com.Send(getGo2PoseCmd(valve,pos));
         }
-        cmd+="A"+String.valueOf(pos)+"/n"+"R";
+    }
 
-        com.Send(cmd.getBytes());
+    public static byte[] getGo2PoseCmd(boolean valve,int pos){
+        String head = "/" + "1", cmd;
+        if (valve) {
+            cmd = "I";
+        } else {
+            cmd = "O";
+        }
+        cmd += "A" + String.valueOf(pos) + "R";
+        head = head + String.valueOf(cmd.length());
+        cmd = head + cmd + "\r";
+        return cmd.getBytes();
     }
 }

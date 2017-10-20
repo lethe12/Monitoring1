@@ -1,7 +1,8 @@
 package cn.com.grean.model;
 
-import java.text.DecimalFormat;
+import java.util.ArrayList;
 
+import cn.com.grean.EquipmentInfo;
 import cn.com.grean.myApplication;
 import cn.com.grean.tools;
 
@@ -18,6 +19,7 @@ public class MeasureInfo {
 	private String dateString;
 	private String autoTestDateString;
 	private String autoCalDateString;
+    private ArrayList<ResultUnit> resultUnits = new ArrayList<ResultUnit>();
 	
 
 	public String getAutoCalDateString() {
@@ -39,36 +41,50 @@ public class MeasureInfo {
 	}
 
 
-	public MeasureInfo(float result,long date,boolean autoTestEnable,long autoTest,boolean autoCalEnable,long autoCal) {
+	public MeasureInfo(float result,long date,boolean autoTestEnable,long autoTest,boolean autoCalEnable,long autoCal,EquipmentInfo info) {
 		// TODO 自动生成的构造函数存根
 		this.result = result;
 		if (date == 0) {
 			resultString = "Nan";
 			dateString = "测量时间:";
-		}
-		else {			
-			DecimalFormat fnum = new DecimalFormat("##0.000"); //保留小数点后3位
-			resultString=fnum.format(result); 
+		}else {
+			//DecimalFormat fnum = new DecimalFormat("##0.000"); //保留小数点后3位
+			//resultString=fnum.format(result);
+			resultString = info.getResult(result);
 			dateString = "测量时间:"+tools.timestamp2string(date);
 		}
 		if(autoCalEnable){			
 			autoCalDateString = "下次校准时间:"+ tools.timestamp2string(autoCal);
-		}
-		else {
+		}else {
 			autoCalDateString = "下次校准时间:";
 		}
 		
 		if (autoTestEnable) {
-			
 			autoTestDateString = "下次测量时间:"+ tools.timestamp2string(autoTest);
-		}
-		else {
+		}else {
 			autoTestDateString = "下次测量时间:";
 		}
+
+
 	}
 
+	public void setResults(int sampleNumber, float[] results, EquipmentInfo info){
+        for(int i=0;i<sampleNumber;i++){
+            ResultUnit unit;
+            if(results[i]==0f){
+                unit = new ResultUnit(info.getTag(), "Nan", info.getUnit());
+            }else {
+                unit = new ResultUnit(info.getTag(), info.getResult(results[i]), info.getUnit());
+            }
+            resultUnits.add(unit);
+        }
+    }
 
-	public float getResult() {
+    public ArrayList<ResultUnit> getResultUnits() {
+        return resultUnits;
+    }
+
+    public float getResult() {
 		return result;
 	}
 

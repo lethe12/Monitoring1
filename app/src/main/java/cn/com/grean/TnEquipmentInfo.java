@@ -9,6 +9,7 @@ import cn.com.grean.script.instruction.CommandSerialPort;
 public class TnEquipmentInfo implements EquipmentInfo{
 	@SuppressWarnings("unused")
 	private final static String tag = "TnEquipmentInfo";
+	private final static String unit = "mg/L";
 	private EquipmentData data  = null;
 	private final static boolean [] pump = {true,true,true,false};
 	private final static boolean [] valve = {true,true,true,true,true,
@@ -37,6 +38,8 @@ public class TnEquipmentInfo implements EquipmentInfo{
 		// TODO 自动生成的方法存根
 		if (data==null) {
 			data = new EquipmentData(pump, valve, vd, vdOn, vdOff,vdNum);
+			data.setHasInjectionPump(false);
+			data.setHasRobotArm(false);
 		}
 		return data;
 	}
@@ -90,16 +93,22 @@ public class TnEquipmentInfo implements EquipmentInfo{
 	}
 
 	@Override
-	public boolean hasRobotArm() {
-		return false;
+	public String getUnit() {
+		return unit;
 	}
 
-	@Override
-	public boolean hasInjectionPump() {
-		return false;
-	}
+    @Override
+    public int getSampleNumber(int type) {
+        return 1;
+    }
 
-	@Override
+    @Override
+    public String getTag() {
+        return null;
+    }
+
+
+    @Override
 	public void setVirtualDevices(int pos, String params, CommandSerialPort com) {
 		// TODO 自动生成的方法存根
 		/*if (pos<2) {

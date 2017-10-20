@@ -36,6 +36,10 @@
         "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\download_dialog.xml"
     },
     {
+        "merged": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_realtime.xml",
+        "source": "C:\\Users\\weifeng\\AndroidStudioProjects\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_realtime.xml"
+    },
+    {
         "merged": "D:\\work\\android\\Monitoring1\\app\\build\\intermediates\\res\\merged\\debug\\layout\\fragment_maintenance.xml",
         "source": "D:\\work\\android\\Monitoring1\\app\\src\\main\\res\\layout\\fragment_maintenance.xml"
     },

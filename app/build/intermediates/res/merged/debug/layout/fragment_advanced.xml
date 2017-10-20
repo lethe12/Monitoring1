@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_margin="5dp" />
-		
+
         <TextView
             style="@style/StringStyle"
             android:layout_width="wrap_content"
@@ -35,7 +35,7 @@
             android:layout_gravity="center"
             android:layout_marginBottom="5dp"
             android:layout_marginTop="5dp"
-            android:text="量程:" />
+            android:text="规格:" />
         
         <Spinner
             android:id="@+id/spAdvanceChooseRanges"
@@ -262,6 +262,7 @@
             android:id="@+id/btnAdvanceSaveCalParams"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginBottom="5dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="20dp"

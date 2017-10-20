@@ -22,6 +22,7 @@ public class RobotArmManipulator {
     private RobotArmState state;
     private float nowX,nowY,nowZ;
     public static final byte[] scanPos={(byte) 0xaa, (byte) 0xaa,0x02,0x0a,0x00, (byte) 0xf6};
+    public static final float DefaultX=284.5f,DefaultY =3.5f,DefaultZ = 41.2f;
     private LocalConfig config;
 
     public RobotArmManipulator(RobotArmManipulatorListener listener){

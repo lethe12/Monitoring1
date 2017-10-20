@@ -243,10 +243,10 @@ public abstract class SerialPortCommunication {
                             strRecData = "";
                         }
                         else {
-                            /*String str_s = tools.bytesToHexString(buf, size);
+                            String str_s = tools.bytesToHexString(buf, size);
                             strRecData = strRecData + str_s;
                             Log.d(tag,"串口收到<-" +  strRecData + " size" + Integer.toString(size));
-                            strRecData = "";*/
+                            strRecData = "";
                         }
                     }
                     //}

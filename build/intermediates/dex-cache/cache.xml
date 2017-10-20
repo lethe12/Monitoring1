@@ -24,7 +24,7 @@
         jar="C:\Users\weifeng\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
         jumboMode="false"
         optimize="true"
-        revision="25.0.2"
+        revision="26.0.0"
         sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
         <dex dex="C:\Users\weifeng\AndroidStudioProjects\Monitoring1\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_8c1fd1b6ee94a6c706c3f35d2bf1e1ded5e4e40c.jar" />
     </item>
@@ -33,7 +33,7 @@
         jar="C:\Users\weifeng\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-v4\18.0.0\support-v4-18.0.0.jar"
         jumboMode="false"
         optimize="true"
-        revision="26.0.0"
+        revision="25.0.2"
         sha1="44ec51e9d395a47aab135e5e1b556c0007442156">
         <dex dex="C:\Users\weifeng\AndroidStudioProjects\Monitoring1\app\build\intermediates\pre-dexed\debug\support-v4-18.0.0_8c1fd1b6ee94a6c706c3f35d2bf1e1ded5e4e40c.jar" />
     </item>

@@ -1,6 +1,8 @@
 package cn.com.grean.monitoring;
 
 import cn.com.grean.EquipmentData;
+import cn.com.grean.InjectionPump.InjectionPumpManipulator;
+import cn.com.grean.InjectionPump.InjectionPumpManipulatorListener;
 import cn.com.grean.Presenter.DetailMaintenancePresenter;
 import cn.com.grean.Presenter.MaintenanceDetail;
 import cn.com.grean.RobotArm.RobotArmManipulator;
@@ -26,7 +28,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ToggleButton;
 
-public class MaintenanceDetailFragment extends Fragment implements MaintenanceDetailView,OnClickListener,RobotArmManipulatorListener{
+public class MaintenanceDetailFragment extends Fragment implements MaintenanceDetailView,OnClickListener,RobotArmManipulatorListener,InjectionPumpManipulatorListener{
 	private final static String tag = "MaintenanceDetail";
 	private Button btnInit;
 	private Button btnClear;
@@ -55,6 +57,12 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 	private EditText etPoseNum;
 	private Button btnZeroPose,btnSetZeroPose,btnSavePose,test1,test2;
 	private ClickPose clickPose;
+
+	private Button btnInjectionPumpInit,btnInjectionPumpMove;
+	private EditText etInjectionPumpMove;
+	private Switch swInjectionPumpValve;
+    private InjectionPumpManipulator injectionPump;
+    private View injectionPumpView,robotArmView;
 
 	private String robotArmStateString,PoseString;
 	private int showPoseNum;
@@ -92,6 +100,7 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 		robotArm = new RobotArmManipulator(this);
 		swRobotArmScan.setChecked(robotArm.isScanRun());
 		clickPose.showPoses(robotArm.getLocalPoses());
+        injectionPump = new InjectionPumpManipulator(this);
 		return view;
 	}
 	
@@ -175,14 +184,22 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 		btnZeroPose = (Button) v.findViewById(R.id.btnOperateZero);
 		btnSetZeroPose = (Button) v.findViewById(R.id.btnOperateSetZero);
 		btnSavePose = (Button) v.findViewById(R.id.btnOperateSavePose);
+        robotArmView = v.findViewById(R.id.LinearLayoutRobotArmState);
 
 		test1 = (Button) v.findViewById(R.id.btnOperateTest1);
 		test2 = (Button) v.findViewById(R.id.btnOperateTest2);
 		test1.setOnClickListener(this);
 		test2.setOnClickListener(this);
 
+        btnInjectionPumpInit = (Button) v.findViewById(R.id.btnOperateInjectionPumpInit);
+        btnInjectionPumpMove = (Button) v.findViewById(R.id.btnOperateInjectionPumpMove);
+        swInjectionPumpValve = (Switch) v.findViewById(R.id.swOperateInjectionPumpValve);
+        etInjectionPumpMove = (EditText) v.findViewById(R.id.etOperateInjectionPumpMove);
+        btnInjectionPumpInit.setOnClickListener(this);
+        btnInjectionPumpMove.setOnClickListener(this);
+        injectionPumpView = v.findViewById(R.id.linearLayoutInjectionPump);
 
-		btnZeroPose.setOnClickListener(this);
+        btnZeroPose.setOnClickListener(this);
 		btnSetZeroPose.setOnClickListener(this);
 		btnSavePose.setOnClickListener(this);
 		swRobotArmScan.setOnClickListener(this);
@@ -264,8 +281,19 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 			else {
 				pumpView[i].setVisibility(View.GONE);
 			}
-			
 		}
+
+		if(data.isHasInjectionPump()){
+            injectionPumpView.setVisibility(View.VISIBLE);
+        }else{
+            injectionPumpView.setVisibility(View.GONE);
+        }
+
+        if(data.isHasRobotArm()){
+            robotArmView.setVisibility(View.VISIBLE);
+        }else{
+            robotArmView.setVisibility(View.GONE);
+        }
 	}
 
 	@Override
@@ -380,187 +408,190 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 	public void onClick(View v) {
 		// TODO 自动生成的方法存根
 		switch (v.getId()) {
-		case R.id.swOperateSacnRobotArm:
-				if(swRobotArmScan.isChecked()){
-					robotArm.startScan();
-				}else {
-					robotArm.stopScan();
-				}
-				break;
-		case R.id.btnOperateInit:
-			if (presenter.init()) {
-				Toast.makeText(getActivity(), "开始初始化", Toast.LENGTH_SHORT).show();
-			}
-			else {
-				Toast.makeText(getActivity(), "系统正忙，请稍候再试", Toast.LENGTH_SHORT).show();
-			}
-			break;
-		case R.id.btnOperateClear:
-			if (presenter.clear()) {
-				Toast.makeText(getActivity(), "开始清洗", Toast.LENGTH_SHORT).show();
-			}
-			else {
-				Toast.makeText(getActivity(), "系统正忙，请稍候再试", Toast.LENGTH_SHORT).show();
-			}
-			break;
-		case R.id.tbOperateMaintenModel:
-			if ((ScriptRun.getInstance().isRun())&&(tbChangMaintenanceModel.isChecked())) {
-				tbChangMaintenanceModel.setChecked(false);
-				Toast.makeText(getActivity(), "系统正在运行，请勿进行维护操作!", Toast.LENGTH_SHORT).show();
-			}
-			else {				
-				presenter.MaintenanceModelSwitch(tbChangMaintenanceModel.isChecked());
-			}
-			break;
-		case R.id.btnTempParam1:
-			presenter.calTemp(7, Float.valueOf(etTempParams[0].getText().toString()));
-			break;
-		case R.id.btnTempParam2:
-			presenter.calTemp(8, Float.valueOf(etTempParams[1].getText().toString()));
-			break;
-		case R.id.btnGetDetector:
-			ReadState read = new ReadState();
-			read.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "GetDectect");
-			break;
-		case R.id.btnGetDevices:
-			ReadState devices = new ReadState();
-			devices.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "GetDevices");
-			break;
-		case R.id.tbOperateVD1:
-			presenter.setVirtual(0, tbVDSwtich[0].isChecked());
-			break;
-		case R.id.tbOperateVD2:
-			presenter.setVirtual(1, tbVDSwtich[1].isChecked());
-			break;
-		case R.id.tbOperateVD3:
-			presenter.setVirtual(2, tbVDSwtich[2].isChecked());
-			break;
-		case R.id.tbOperateVD4:
-			presenter.setVirtual(3, tbVDSwtich[3].isChecked());
-			break;
-		case R.id.tbOperateVD5:
-			presenter.setVirtual(4, tbVDSwtich[4].isChecked());
-			break;
-		case R.id.tbOperateV1:
-			presenter.setValve(1, tbValveSwich[0].isChecked());
-			break;
-		case R.id.tbOperateV2:
-			presenter.setValve(2, tbValveSwich[1].isChecked());
-			break;
-		case R.id.tbOperateV3:
-			presenter.setValve(3, tbValveSwich[2].isChecked());
-			break;
-		case R.id.tbOperateV4:
-			presenter.setValve(4, tbValveSwich[3].isChecked());
-			break;
-		case R.id.tbOperateV5:
-			presenter.setValve(5, tbValveSwich[4].isChecked());
-			break;
-		case R.id.tbOperateV6:
-			presenter.setValve(6, tbValveSwich[5].isChecked());
-			break;
-		case R.id.tbOperateV7:
-			presenter.setValve(7, tbValveSwich[6].isChecked());
-			break;
-		case R.id.tbOperateV8:
-			presenter.setValve(8, tbValveSwich[7].isChecked());
-			break;
-		case R.id.tbOperateV9:
-			presenter.setValve(9, tbValveSwich[8].isChecked());
-			break;
-		case R.id.tbOperateV10:
-			presenter.setValve(10, tbValveSwich[9].isChecked());
-			break;
-		case R.id.tbOperateV11:
-			presenter.setValve(11, tbValveSwich[10].isChecked());
-			break;
-		case R.id.tbOperateV12:
-			presenter.setValve(12, tbValveSwich[11].isChecked());
-			break;
-		case R.id.tbOperateV13:
-			presenter.setValve(13, tbValveSwich[12].isChecked());
-			break;
-		case R.id.tbOperateV14:
-			presenter.setValve(14, tbValveSwich[13].isChecked());
-			break;
-		case R.id.tbOperateV15:
-			presenter.setValve(15, tbValveSwich[14].isChecked());
-			break;
-		case R.id.tbOperateV16:
-			presenter.setValve(16, tbValveSwich[15].isChecked());
-			break;
-		case R.id.tbOperateV17:
-			presenter.setValve(17, tbValveSwich[16].isChecked());
-			break;
-		case R.id.tbOperateV18:
-			presenter.setValve(18, tbValveSwich[17].isChecked());
-			break;
-		case R.id.tbOperateV19:
-			presenter.setValve(19, tbValveSwich[18].isChecked());
-			break;
-		case R.id.tbOperateV20:
-			presenter.setValve(20, tbValveSwich[19].isChecked());
-			break;
-		case R.id.tbOperateV21:
-			presenter.setValve(21, tbValveSwich[20].isChecked());
-			break;
-		case R.id.tbOperateV22:
-			presenter.setValve(22, tbValveSwich[21].isChecked());
-			break;
-		case R.id.tbOperateV23:
-			presenter.setValve(23, tbValveSwich[22].isChecked());
-			break;
-		case R.id.tbOperateV24:
-			presenter.setValve(24, tbValveSwich[23].isChecked());
-			break;
-		case R.id.tbOperateV25:
-			presenter.setValve(25, tbValveSwich[24].isChecked());
-			break;
-		case R.id.tbOperateV26:
-			presenter.setValve(26, tbValveSwich[25].isChecked());
-			break;
-		case R.id.tbOperateV27:
-			presenter.setValve(27, tbValveSwich[26].isChecked());
-			break;
-		case R.id.tbOperateV28:
-			presenter.setValve(28, tbValveSwich[27].isChecked());
-			break;
-		case R.id.btnPumpParam1:
-			presenter.setPumpParams(1,Float.valueOf(etPumpParams[0].getText().toString()));
-			break;
-		case R.id.btnPumpParam2:
-			presenter.setPumpParams(2,Float.valueOf(etPumpParams[1].getText().toString()));
-			break;
-		case R.id.btnPumpParam3:
-			presenter.setPumpParams(3,Float.valueOf(etPumpParams[2].getText().toString()));
-			break;
-		case R.id.btnPumpParam4:
-			presenter.setPumpParams(4,Float.valueOf(etPumpParams[3].getText().toString()));
-			break;
-		case R.id.btnStopPump1:
-			presenter.stopPump(1);
-			break;
-		case R.id.btnStopPump2:
-			presenter.stopPump(2);
-			break;
-		case R.id.btnStopPump3:
-			presenter.stopPump(3);
-			break;
-		case R.id.btnStopPump4:
-			presenter.stopPump(4);
-			break;
-		case R.id.btnStartPump1:
-			presenter.startPump(1,Integer.valueOf(etPumpRound[0].getText().toString()) , Integer.valueOf(etPumpTime[0].getText().toString()));
-			break;
-		case R.id.btnStartPump2:
-			presenter.startPump(2,Integer.valueOf(etPumpRound[1].getText().toString()) , Integer.valueOf(etPumpTime[1].getText().toString()));
-			break;
-		case R.id.btnStartPump3:
-			presenter.startPump(3,Integer.valueOf(etPumpRound[2].getText().toString()) , Integer.valueOf(etPumpTime[2].getText().toString()));
-			break;
-		case R.id.btnStartPump4:
-			presenter.startPump(4,Integer.valueOf(etPumpRound[3].getText().toString()) , Integer.valueOf(etPumpTime[3].getText().toString()));
-			break;
+            case R.id.swOperateSacnRobotArm:
+                    if(swRobotArmScan.isChecked()){
+                        robotArm.startScan();
+                    }else {
+                        robotArm.stopScan();
+                    }
+                    break;
+            case R.id.btnOperateInit:
+                if (presenter.init()) {
+                    Toast.makeText(getActivity(), "开始初始化", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getActivity(), "系统正忙，请稍候再试", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.btnOperateClear:
+                if (presenter.clear()) {
+                    Toast.makeText(getActivity(), "开始清洗", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(getActivity(), "系统正忙，请稍候再试", Toast.LENGTH_SHORT).show();
+                }
+                break;
+            case R.id.tbOperateMaintenModel:
+                if ((ScriptRun.getInstance().isRun())&&(tbChangMaintenanceModel.isChecked())) {
+                    tbChangMaintenanceModel.setChecked(false);
+                    Toast.makeText(getActivity(), "系统正在运行，请勿进行维护操作!", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    presenter.MaintenanceModelSwitch(tbChangMaintenanceModel.isChecked());
+                    if(!tbChangMaintenanceModel.isChecked()){
+                        robotArm.stopScan();
+                    }
+                }
+                break;
+            case R.id.btnTempParam1:
+                presenter.calTemp(7, Float.valueOf(etTempParams[0].getText().toString()));
+                break;
+            case R.id.btnTempParam2:
+                presenter.calTemp(8, Float.valueOf(etTempParams[1].getText().toString()));
+                break;
+            case R.id.btnGetDetector:
+                ReadState read = new ReadState();
+                read.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "GetDectect");
+                break;
+            case R.id.btnGetDevices:
+                ReadState devices = new ReadState();
+                devices.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, "GetDevices");
+                break;
+            case R.id.tbOperateVD1:
+                presenter.setVirtual(0, tbVDSwtich[0].isChecked());
+                break;
+            case R.id.tbOperateVD2:
+                presenter.setVirtual(1, tbVDSwtich[1].isChecked());
+                break;
+            case R.id.tbOperateVD3:
+                presenter.setVirtual(2, tbVDSwtich[2].isChecked());
+                break;
+            case R.id.tbOperateVD4:
+                presenter.setVirtual(3, tbVDSwtich[3].isChecked());
+                break;
+            case R.id.tbOperateVD5:
+                presenter.setVirtual(4, tbVDSwtich[4].isChecked());
+                break;
+            case R.id.tbOperateV1:
+                presenter.setValve(1, tbValveSwich[0].isChecked());
+                break;
+            case R.id.tbOperateV2:
+                presenter.setValve(2, tbValveSwich[1].isChecked());
+                break;
+            case R.id.tbOperateV3:
+                presenter.setValve(3, tbValveSwich[2].isChecked());
+                break;
+            case R.id.tbOperateV4:
+                presenter.setValve(4, tbValveSwich[3].isChecked());
+                break;
+            case R.id.tbOperateV5:
+                presenter.setValve(5, tbValveSwich[4].isChecked());
+                break;
+            case R.id.tbOperateV6:
+                presenter.setValve(6, tbValveSwich[5].isChecked());
+                break;
+            case R.id.tbOperateV7:
+                presenter.setValve(7, tbValveSwich[6].isChecked());
+                break;
+            case R.id.tbOperateV8:
+                presenter.setValve(8, tbValveSwich[7].isChecked());
+                break;
+            case R.id.tbOperateV9:
+                presenter.setValve(9, tbValveSwich[8].isChecked());
+                break;
+            case R.id.tbOperateV10:
+                presenter.setValve(10, tbValveSwich[9].isChecked());
+                break;
+            case R.id.tbOperateV11:
+                presenter.setValve(11, tbValveSwich[10].isChecked());
+                break;
+            case R.id.tbOperateV12:
+                presenter.setValve(12, tbValveSwich[11].isChecked());
+                break;
+            case R.id.tbOperateV13:
+                presenter.setValve(13, tbValveSwich[12].isChecked());
+                break;
+            case R.id.tbOperateV14:
+                presenter.setValve(14, tbValveSwich[13].isChecked());
+                break;
+            case R.id.tbOperateV15:
+                presenter.setValve(15, tbValveSwich[14].isChecked());
+                break;
+            case R.id.tbOperateV16:
+                presenter.setValve(16, tbValveSwich[15].isChecked());
+                break;
+            case R.id.tbOperateV17:
+                presenter.setValve(17, tbValveSwich[16].isChecked());
+                break;
+            case R.id.tbOperateV18:
+                presenter.setValve(18, tbValveSwich[17].isChecked());
+                break;
+            case R.id.tbOperateV19:
+                presenter.setValve(19, tbValveSwich[18].isChecked());
+                break;
+            case R.id.tbOperateV20:
+                presenter.setValve(20, tbValveSwich[19].isChecked());
+                break;
+            case R.id.tbOperateV21:
+                presenter.setValve(21, tbValveSwich[20].isChecked());
+                break;
+            case R.id.tbOperateV22:
+                presenter.setValve(22, tbValveSwich[21].isChecked());
+                break;
+            case R.id.tbOperateV23:
+                presenter.setValve(23, tbValveSwich[22].isChecked());
+                break;
+            case R.id.tbOperateV24:
+                presenter.setValve(24, tbValveSwich[23].isChecked());
+                break;
+            case R.id.tbOperateV25:
+                presenter.setValve(25, tbValveSwich[24].isChecked());
+                break;
+            case R.id.tbOperateV26:
+                presenter.setValve(26, tbValveSwich[25].isChecked());
+                break;
+            case R.id.tbOperateV27:
+                presenter.setValve(27, tbValveSwich[26].isChecked());
+                break;
+            case R.id.tbOperateV28:
+                presenter.setValve(28, tbValveSwich[27].isChecked());
+                break;
+            case R.id.btnPumpParam1:
+                presenter.setPumpParams(1,Float.valueOf(etPumpParams[0].getText().toString()));
+                break;
+            case R.id.btnPumpParam2:
+                presenter.setPumpParams(2,Float.valueOf(etPumpParams[1].getText().toString()));
+                break;
+            case R.id.btnPumpParam3:
+                presenter.setPumpParams(3,Float.valueOf(etPumpParams[2].getText().toString()));
+                break;
+            case R.id.btnPumpParam4:
+                presenter.setPumpParams(4,Float.valueOf(etPumpParams[3].getText().toString()));
+                break;
+            case R.id.btnStopPump1:
+                presenter.stopPump(1);
+                break;
+            case R.id.btnStopPump2:
+                presenter.stopPump(2);
+                break;
+            case R.id.btnStopPump3:
+                presenter.stopPump(3);
+                break;
+            case R.id.btnStopPump4:
+                presenter.stopPump(4);
+                break;
+            case R.id.btnStartPump1:
+                presenter.startPump(1,Integer.valueOf(etPumpRound[0].getText().toString()) , Integer.valueOf(etPumpTime[0].getText().toString()));
+                break;
+            case R.id.btnStartPump2:
+                presenter.startPump(2,Integer.valueOf(etPumpRound[1].getText().toString()) , Integer.valueOf(etPumpTime[1].getText().toString()));
+                break;
+            case R.id.btnStartPump3:
+                presenter.startPump(3,Integer.valueOf(etPumpRound[2].getText().toString()) , Integer.valueOf(etPumpTime[2].getText().toString()));
+                break;
+            case R.id.btnStartPump4:
+                presenter.startPump(4,Integer.valueOf(etPumpRound[3].getText().toString()) , Integer.valueOf(etPumpTime[3].getText().toString()));
+                break;
 			case R.id.btnOperateTest1:
 				robotArm.jump2Pose(150,-139,14);
 				break;
@@ -576,6 +607,12 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
 			case R.id.btnOperateSavePose:
 				robotArm.savePose(etPoseNum.getText().toString());
 				break;
+            case R.id.btnOperateInjectionPumpInit:
+                injectionPump.initPump();
+                break;
+            case R.id.btnOperateInjectionPumpMove:
+                injectionPump.go2Pose(swInjectionPumpValve.isChecked(),Integer.valueOf(etInjectionPumpMove.getText().toString()));
+                break;
 		default:
 			break;
 		}

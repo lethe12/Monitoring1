@@ -53,7 +53,11 @@ public class CommandContent {
 			return new PoseCommand();
 		}else if(type.equals("PoseZero")){
             return new PoseZeroCommand();
-        }else{
+        }else if(type.equals("Inject")){
+			return new Inject();
+		}else if(type.equals("InjectZero")){
+			return new InjectZero();
+		}else{
 			return new NonCommand();
 		}
 		

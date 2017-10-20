@@ -1,5 +1,7 @@
 package cn.com.grean;
 
+import android.util.Log;
+
 import cn.com.grean.script.instruction.CommandSerialPort;
 
 /**
@@ -8,7 +10,7 @@ import cn.com.grean.script.instruction.CommandSerialPort;
 
 public class RS232InjectionPump extends SerialPortCommunication implements CommandSerialPort {
     private static RS232InjectionPump instance = new RS232InjectionPump();
-
+    private static final String tag = "RS232InjectionPump";
 
     public static RS232InjectionPump getInstance() {
         return instance;
@@ -25,12 +27,12 @@ public class RS232InjectionPump extends SerialPortCommunication implements Comma
 
     @Override
     protected void CommunicationProtocal(byte[] rec, int len) {
-
+        Log.d(tag,tools.bytesToHexString(rec,len));
     }
 
     @Override
     protected void AsynchronousCommunicationProtocal(byte[] rec, int len) {
-
+        Log.d(tag,tools.bytesToHexString(rec,len));
     }
 
     @Override

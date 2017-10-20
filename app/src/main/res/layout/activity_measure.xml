@@ -26,7 +26,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="300dp"
             android:src="@drawable/icon_online"
-            android:visibility="invisible" />
+            android:visibility="visible" />
 
         <ImageView
             android:id="@+id/ivBreakDown"
@@ -35,7 +35,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:src="@drawable/icon_breakdown"
-            android:visibility="invisible" />
+            android:visibility="visible" />
 
         <ImageView
             android:id="@+id/ivWarring"
@@ -44,7 +44,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:src="@drawable/icon_warring"
-            android:visibility="invisible" />
+            android:visibility="visible" />
 
         <ImageView
             android:id="@+id/ivMaintenance"
@@ -53,7 +53,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:src="@drawable/icon_maintenance"
-            android:visibility="invisible" />
+            android:visibility="visible" />
 
         <DigitalClock
             android:id="@+id/digitalClock1"

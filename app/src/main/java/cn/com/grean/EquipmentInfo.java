@@ -44,7 +44,15 @@ public interface EquipmentInfo {
 	 */
 	String getVirtualDevices(int pos,CommandSerialPort com);
 
-	boolean hasRobotArm();
+	/**
+	 * 获取单位
+	 * @return
+	 */
+	String getUnit();
 
-	boolean hasInjectionPump();
+	int getSampleNumber(int type);
+
+	String getTag();
+
+
 }

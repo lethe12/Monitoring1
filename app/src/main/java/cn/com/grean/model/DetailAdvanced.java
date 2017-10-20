@@ -25,7 +25,7 @@ public class DetailAdvanced implements DetailAdvancedModel{
 		// TODO 自动生成的构造函数存根
 		uri = myApplication.getInstance().getConfigString("URL");
 		if (uri=="") {
-			uri="http://192.168.168.61:8080/Monitoring.apk";
+			uri="http://192.168.168.61:12599/Monitoring.apk";
 		}
 	}
 

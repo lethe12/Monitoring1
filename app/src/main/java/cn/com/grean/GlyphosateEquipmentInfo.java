@@ -11,6 +11,7 @@ import cn.com.grean.script.instruction.CommandSerialPort;
 public class GlyphosateEquipmentInfo implements EquipmentInfo{
     private final static String tag = "GlyphosateEquipmentInfo";
     private EquipmentData data  = null;
+    private final static String unit = "μg/L";
     private final static boolean [] pump = {true,true,true,true};
     private final static boolean [] valve = {true,true,true,true,true,
             true,true,true,true,true,
@@ -18,12 +19,12 @@ public class GlyphosateEquipmentInfo implements EquipmentInfo{
             true,true,true,true,true,
             true,true,true,true,true,
             true,true,true};
-    private final static boolean [] vd = {true,true,false,false,false};
-    private final static String [] vdOn = {"光源开","消解开","ThreeOn","FourOn","FiveOn"};
-    private final static String [] vdOff = {"光源关","消解关","ThreeOff","FourOff","FiveOff"};
+    private final static boolean [] vd = {true,false,false,false,false};
+    private final static String [] vdOn = {"光源开","twoOn","ThreeOn","FourOn","FiveOn"};
+    private final static String [] vdOff = {"光源关","TwoOff","ThreeOff","FourOff","FiveOff"};
     //private final static String [] virtualDevicesStrings = {"光源","加热器","浊度补偿系数"};
     private final static String [] virtualDevicesStrings = {"None"};
-    private final static String [] ranges={"2mg/L","5mg/L","10mg/L"};
+    private final static String [] ranges={"1样品","2样品","4样品","8样品"};
     private final static byte [] vdNum = {4,6,10,11,12};//虚拟设备编号
 
     public GlyphosateEquipmentInfo(){
@@ -34,6 +35,8 @@ public class GlyphosateEquipmentInfo implements EquipmentInfo{
     public EquipmentData getEquipmentData() {
         if (data==null) {
             data = new EquipmentData(pump, valve, vd, vdOn, vdOff,vdNum);
+            data.setHasInjectionPump(true);
+            data.setHasRobotArm(true);
         }
         return data;
     }
@@ -70,12 +73,30 @@ public class GlyphosateEquipmentInfo implements EquipmentInfo{
     }
 
     @Override
-    public boolean hasRobotArm() {
-        return true;
+    public String getUnit() {
+        return unit;
     }
 
     @Override
-    public boolean hasInjectionPump() {
-        return true;
+    public int getSampleNumber(int type) {
+        switch (type){
+            case 0:
+                return 1;
+            case 1:
+                return 2;
+            case 2:
+                return 4;
+            case 3:
+                return 8;
+            default:
+                return 1;
+        }
     }
+
+    @Override
+    public String getTag() {
+        return "样品";
+    }
+
+
 }

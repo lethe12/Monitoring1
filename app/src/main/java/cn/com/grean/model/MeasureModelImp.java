@@ -18,9 +18,11 @@ public class MeasureModelImp implements MeasureModel{
 		app.loadLastResult();
 		MeasureInfo measureInfo = new MeasureInfo(app.getLastResult(),app.getLastDate(),app.getConfigBoolean("AutoTestModel"),
 				app.getConfigLong("AutoTestDate"),app.getConfigBoolean("AutoCalModel"),app.getConfigLong("AutoCalDate"));
+        app.loadLastResult(app.getSampleNumber());
+		measureInfo.setResults(app.getSampleNumber(),app.getLastResults(),app.getEquipmentInfo());
 		url = app.getConfigString("URL");
 		if (url == "") {
-			url = "http://192.168.168.164:8080/Monitoring.apk";
+			url = "http://192.168.168.61:12599/Monitoring.apk";
 		}
 		//回调
 		if(listener != null){

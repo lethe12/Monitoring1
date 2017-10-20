@@ -49,8 +49,9 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
 	private String devicesName="";
 	private MeasureInfoData measureInfoData;
 	private float lastResult;
+    private float[] lastResults;
 	private long lastDate;	
-	private int devicesRange = 0;
+	private int devicesRange = 0,sampleNumber = 1;
 
 	public String getDevicesName() {
 		return devicesName;
@@ -203,7 +204,6 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
 		SQLiteDatabase db =  helperDbTask.getReadableDatabase();
 		Cursor cursor = db.rawQuery("select * from result order by date desc", new String[]{});//这边写上你的查询语句
 		if (cursor.moveToNext()) {
-			
 			lastResult =cursor.getFloat(1);
 			lastDate = cursor.getLong(2);
 		}
@@ -214,6 +214,29 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
 		ProtocolProcessorImp.getInstance().setProtocolResult(lastResult);
 		ProtocolProcessorImp.getInstance().setProtocolTimeStamp(lastDate);
 	}
+
+	public void loadLastResult(int sampleNumber){
+        lastResults = new float[sampleNumber];
+        int index = 0;
+        lastDate = 0;
+        DbTask helperDbTask = new DbTask(getApplicationContext(), 2);
+        SQLiteDatabase db =  helperDbTask.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from result order by date desc", new String[]{});//这边写上你的查询语句
+        while (cursor.moveToNext()) {
+            lastResults[index] =cursor.getFloat(1);
+            lastDate = cursor.getLong(2);
+            index++;
+        }
+        if(index < (sampleNumber-1)){
+            for(int i=index;i<sampleNumber;i++){
+                lastResults[i] = 0f;
+            }
+        }
+        lastResult = lastResults[0];
+        ProtocolProcessorImp.getInstance().setProtocolResult(lastResult);
+        ProtocolProcessorImp.getInstance().setProtocolTimeStamp(lastDate);
+
+    }
 	
 	public void dropDataBase (String [] tables){
 		DbTask helperDbTask = new DbTask(getApplicationContext(),2);
@@ -400,6 +423,7 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
 		}
 		devicesName = sp.getString("DevicesName", "TN");
 		devicesRange = sp.getInt("DevicesRange", 0);
+        sampleNumber = sp.getInt("SampleNumber",1);
 		
 		ProtocolProcessorImp.getInstance().setByteProtocolAddress((byte) sp.getInt("SLaveAddress", 1));
 		ProtocolProcessorImp.getInstance().setASCIIProtocolID(sp.getString("TCPID", "12345"));
@@ -756,9 +780,16 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
 		return devicesRange;
 	}
 
+	public int getSampleNumber(){return sampleNumber;}
+
 	public void setDevicesRange(int devicesRange) {
+        sampleNumber = equipmentInfo.getSampleNumber(devicesRange);
+        putConfig("SampleNumber",sampleNumber);
 		putConfig("DevicesRange", devicesRange);
 		this.devicesRange = devicesRange;
 	}
-	
+
+    public float[] getLastResults() {
+        return lastResults;
+    }
 }

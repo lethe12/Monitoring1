@@ -32,6 +32,9 @@ public class RobotArmState {
                     poses.add(pose);
                     times++;
                 }
+            }else{
+                RobotPose pose = new RobotPose(RobotArmManipulator.DefaultX, RobotArmManipulator.DefaultY, RobotArmManipulator.DefaultZ);
+                poses.add(pose);
             }
         }
         return times;
@@ -45,6 +48,9 @@ public class RobotArmState {
     }
 
     public void addPose(int num,RobotPose pose){
+        if(poses.isEmpty()){
+            loadPoses(myApplication.getInstance());
+        }
         poses.add(num,pose);
     }
 
