@@ -50,6 +50,11 @@ public interface EquipmentInfo {
 	 */
 	String getUnit();
 
+	/**
+	 * 获取主界面显示样品数量
+	 * @param type
+	 * @return
+	 */
 	int getSampleNumber(int type);
 
 	String getTag();

@@ -1,5 +1,6 @@
 package cn.com.grean.monitoring;
 
+import cn.com.grean.model.ResultUnit;
 import cn.com.grean.myApplication;
 import cn.com.grean.Presenter.MeasurePresenter;
 import cn.com.grean.Presenter.MeasurePresenterCompl;
@@ -31,6 +32,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class MeasureFragment extends Fragment implements MeasureView,OnClickListener {
 	private final static String tag = "MeasureFragment";
 	private static boolean hasLoaded = false;
@@ -45,7 +48,7 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 	private final static int ShowOnlineICON = 7;
 	private final static int ShowOffOnlineICON = 8;
 	private final static int ShowMaintanceICON = 9;
-	private final static int ShowOffMaintanceICON = 10;
+	private final static int ShowOffMaintanceICON = 10,ShowResultInfoWithSample = 11;
 	//private Button btn_testButton;
     private TextView[] tvResults = new TextView[8],tvTags=new TextView[8],tvUnits=new TextView[8];
     private View[] layoutResults = new View[8];
@@ -68,6 +71,7 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 	
 	private int Max,Progress;
 	private String info,result,time;
+    private int ScriptSampleNumber;
 	private int logoClickTimes=0;//点击6次可查看软件版本
 	
 	Handler handlerDownload = new Handler(){
@@ -120,8 +124,13 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 				break;
 			case ScriptResultInfo:
 				//tv_result.setText(result);
+                resultView.showResult(result,1);
 				tv_date.setText("测量时间:"+time);
 				break;
+                case ShowResultInfoWithSample:
+                    resultView.showResult(result,ScriptSampleNumber);
+                    tv_date.setText("测量时间:"+time);
+                    break;
 			case ShowErrorICON:
 				iv_error.setVisibility(View.VISIBLE);
 				break;
@@ -273,7 +282,7 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 		iv_logo.setOnClickListener(this);
 		pb_measure.setMax(100);
 		pb_measure.setProgress(0);
-		
+
 	}
 
 	@Override
@@ -291,6 +300,7 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 			pb_measure.setProgress(data.getProCount());
 		}
         resultView.showMeasureInfo(measureInfo);
+        resultView.showResults(measureInfo);
 	}
 
 	@Override
@@ -493,8 +503,19 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 			handler.sendEmptyMessage(ShowOffWarringICON);
 		}
 	}
-	
-	@Override
+
+    @Override
+    public void showResultsInfo(String result, String time, int sampleNumber) {
+        this.result = result;
+        this.time = time;
+        this.ScriptSampleNumber = sampleNumber;
+        Message msg = new Message();
+        msg.what = ShowResultInfoWithSample;
+        handler.sendMessage(msg);
+
+    }
+
+    @Override
 	public void onHiddenChanged(boolean hidden) {
 		// TODO 自动生成的方法存根
 		super.onHiddenChanged(hidden);
@@ -554,6 +575,11 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
             this.units = units;
             this.sampleNumber = sampleNumber;
         }
+        public void showResult(String result,int sampleNumber){
+            if(sampleNumber <= this.sampleNumber){
+                results[sampleNumber].setText(result);
+            }
+        }
 
         public void initView(View v){
             views[0] = v.findViewById(R.id.layoutResultRow);
@@ -593,9 +619,50 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
             units[7] = (TextView) v.findViewById(R.id.tvRealTimeUnit24);
         }
 
+        public void showResults(MeasureInfo info){
+            int size = info.getResultUnits().size();
+            switch (size){
+                case 2:
+                    results[0].setText(info.getResultUnits().get(0).getResult());
+                    results[1].setText(info.getResultUnits().get(1).getResult());
+                    break;
+                case 4:
+                    results[0].setText(info.getResultUnits().get(0).getResult());
+                    results[1].setText(info.getResultUnits().get(1).getResult());
+                    results[4].setText(info.getResultUnits().get(2).getResult());
+                    results[5].setText(info.getResultUnits().get(3).getResult());
+                    break;
+                case 8:
+                    results[0].setText(info.getResultUnits().get(0).getResult());
+                    results[1].setText(info.getResultUnits().get(1).getResult());
+                    results[2].setText(info.getResultUnits().get(2).getResult());
+                    results[3].setText(info.getResultUnits().get(3).getResult());
+                    results[4].setText(info.getResultUnits().get(4).getResult());
+                    results[5].setText(info.getResultUnits().get(5).getResult());
+                    results[6].setText(info.getResultUnits().get(6).getResult());
+                    results[7].setText(info.getResultUnits().get(7).getResult());
+                    break;
+                case 1:
+                    default:
+                        results[0].setText(info.getResultUnits().get(0).getResult());
+                        break;
+            }
+        }
+
         public void showMeasureInfo(MeasureInfo info){
+            String tag = info.getInfo().getTag();
+            String unit = info.getInfo().getUnit();
             switch (sampleNumber){
                 case 2:
+                    if(tag==null){
+                        tags[0].setText("");
+                        tags[1].setText("");
+                    }else{
+                        tags[0].setText(tag+"1");
+                        tags[1].setText(tag+"2");
+                    }
+                    units[0].setText(unit);
+                    units[1].setText(unit);
                     tags[0].setTextSize(18);
                     results[0].setTextSize(80);
                     units[0].setTextSize(20);
@@ -607,17 +674,55 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
                     views[0].setVisibility(View.GONE);
                     break;
                 case 4:
+                    if(tag==null){
+                        tags[0].setText("");
+                        tags[1].setText("");
+                        tags[4].setText("");
+                        tags[5].setText("");
+                    }else{
+                        tags[0].setText(tag+"1");
+                        tags[1].setText(tag+"2");
+                        tags[4].setText(tag+"3");
+                        tags[5].setText(tag+"4");
+                    }
+                    units[0].setText(unit);
+                    units[1].setText(unit);
+                    units[4].setText(unit);
+                    units[5].setText(unit);
                     views[2].setVisibility(View.GONE);
                     views[3].setVisibility(View.GONE);
                     views[6].setVisibility(View.GONE);
                     views[7].setVisibility(View.GONE);
                     break;
                 case 8:
-
+                    if(tag==null){
+                        tags[0].setText("");
+                        tags[1].setText("");
+                        tags[2].setText("");
+                        tags[3].setText("");
+                        tags[4].setText("");
+                        tags[5].setText("");
+                        tags[6].setText("");
+                        tags[7].setText("");
+                    }else{
+                        tags[0].setText(tag+"1");
+                        tags[1].setText(tag+"2");
+                        tags[2].setText(tag+"3");
+                        tags[3].setText(tag+"4");
+                        tags[4].setText(tag+"5");
+                        tags[5].setText(tag+"6");
+                        tags[6].setText(tag+"7");
+                        tags[7].setText(tag+"8");
+                    }
+                    for(int i=0;i<8;i++){
+                        units[i].setText(unit);
+                    }
                     break;
                 case 1:
                 default:
+                    tags[0].setText("");
                     tags[0].setTextSize(36);
+                    units[0].setText(unit);
                     results[0].setTextSize(160);
                     units[0].setTextSize(40);
                     for(int i=0;i<8;i++){

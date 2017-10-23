@@ -57,6 +57,8 @@ public class CommandContent {
 			return new Inject();
 		}else if(type.equals("InjectZero")){
 			return new InjectZero();
+		}else if(type.equals("MultiCh")){
+			return new MultiCh();
 		}else{
 			return new NonCommand();
 		}

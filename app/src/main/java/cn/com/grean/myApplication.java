@@ -19,6 +19,7 @@ import cn.com.grean.script.ScriptReader;
 import cn.com.grean.script.WarningInfoListener;
 import cn.com.grean.script.WarningManager;
 import cn.com.grean.script.algorithm.AbsorbanceComputeData;
+import cn.com.grean.script.algorithm.AbsorbancyMultiSampleComputeData;
 import cn.com.grean.script.algorithm.Compute;
 import cn.com.grean.script.algorithm.ComputerDirector;
 import cn.com.grean.script.algorithm.ComputerListener;
@@ -26,6 +27,7 @@ import cn.com.grean.script.algorithm.ComputerParams;
 import cn.com.grean.script.algorithm.DualAbsCompute;
 import cn.com.grean.script.algorithm.DualWaveCompute;
 import cn.com.grean.script.algorithm.GeneralComputerParams;
+import cn.com.grean.script.algorithm.MultiSampleComputer;
 import cn.com.grean.script.algorithm.TitrationComputeData;
 import cn.com.grean.script.instruction.GeneralData;
 import android.app.Application;
@@ -42,6 +44,7 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
 	private RS485 rs485;
 	private static myApplication instance;//单例化
 	private Compute compute=null;
+    private MultiSampleComputer multiSampleComputer = null;
 	private DualWaveCompute dualCompute = null;
 	private EquipmentInfo equipmentInfo;	
 	private HashMap<String, Object> config= new HashMap<String, Object>();//存储配置参数
@@ -528,6 +531,13 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
 		}
 		return compute;
 	}
+
+	public MultiSampleComputer getMultiSampleComputer(){
+        if(multiSampleComputer == null){
+            multiSampleComputer =selectMultiSampleComputer();
+        }
+        return multiSampleComputer;
+    }
 	
 	public DualWaveCompute getDualCompute() {
 		if ((dualCompute == null)||(compute == null)) {
@@ -551,6 +561,19 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
 		return equipmentInfo;
 
 	}
+
+	private MultiSampleComputer selectMultiSampleComputer(){
+        // 配置文件
+        SharedPreferences sp = this.getSharedPreferences("config",MODE_PRIVATE);
+        ComputerDirector director = new ComputerDirector(new GeneralComputerParams());
+        ComputerParams params = director.construct(sp);
+        if(devicesName.equals("Glyphosate")){
+            return new AbsorbancyMultiSampleComputeData(params,this);
+        }else{
+            return new AbsorbancyMultiSampleComputeData(params,this);
+        }
+
+    }
 	
 	private Compute SelectComputer(){
 

@@ -17,7 +17,7 @@ public interface Compute {
 	 */
 	public void setSecondValue(float data);
 	/**
-	 * 获取中间值
+	 * 获取中间值,CODmn中用于设置滴定终点
 	 * @return
 	 */
 	public float getMediumValue();

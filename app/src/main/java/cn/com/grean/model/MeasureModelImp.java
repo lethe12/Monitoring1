@@ -17,7 +17,7 @@ public class MeasureModelImp implements MeasureModel{
 		myApplication app = myApplication.getInstance();
 		app.loadLastResult();
 		MeasureInfo measureInfo = new MeasureInfo(app.getLastResult(),app.getLastDate(),app.getConfigBoolean("AutoTestModel"),
-				app.getConfigLong("AutoTestDate"),app.getConfigBoolean("AutoCalModel"),app.getConfigLong("AutoCalDate"));
+				app.getConfigLong("AutoTestDate"),app.getConfigBoolean("AutoCalModel"),app.getConfigLong("AutoCalDate"),app.getEquipmentInfo());
         app.loadLastResult(app.getSampleNumber());
 		measureInfo.setResults(app.getSampleNumber(),app.getLastResults(),app.getEquipmentInfo());
 		url = app.getConfigString("URL");

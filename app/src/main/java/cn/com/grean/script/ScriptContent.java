@@ -7,6 +7,7 @@ import android.util.Log;
 
 import cn.com.grean.RS232;
 import cn.com.grean.myApplication;
+import cn.com.grean.script.algorithm.MultiSampleComputer;
 import cn.com.grean.tools;
 import cn.com.grean.protocol.ProtocolProcessorImp;
 import cn.com.grean.script.algorithm.Compute;
@@ -291,6 +292,20 @@ public class ScriptContent extends Observable implements ScriptInfo,ResultListen
 		ProtocolProcessorImp.getInstance().setProtocolResult(compute.getComputeResult());
 		ProtocolProcessorImp.getInstance().setProtocolTimeStamp(timestamp);
 	}
+
+	@Override
+	public void onResultsComplete(MultiSampleComputer computer,int sampleNumber) {
+		String result = myApplication.getInstance().getEquipmentInfo().getResult(computer.getComputeResult(sampleNumber));
+		String testTime = tools.timestamp2string(timestamp);
+		scriptRunListener.updateResultsInfo(result, testTime,sampleNumber);
+		setChanged();
+		notifyObservers(new LogFormat("样品"+String.valueOf(sampleNumber)+" "+computer.getComputer().getTestLogInfo()));
+		setChanged();
+		notifyObservers(new ResultDataFormat(computer.getComputer(), timestamp));
+		ProtocolProcessorImp.getInstance().setProtocolResult(computer.getComputer().getComputeResult());
+		ProtocolProcessorImp.getInstance().setProtocolTimeStamp(timestamp);
+	}
+
 	@Override
 	public void onCalibrationComplete(String info) {
 		// TODO 自动生成的方法存根

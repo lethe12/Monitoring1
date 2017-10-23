@@ -25,7 +25,7 @@ public class CHxCommand implements Command{
 		
 		if(params.length ==2){
 			if (params[1] == 1) {
-				myApplication.getInstance().getCompute().setFirstValue(data.getOne(params[0]));
+				myApplication.getInstance().getCompute().setFirstValue(data.getOne(params[0]-1));
 			}
 			else if (params[1]==2) {
 				String stage = ScriptContent.getInstance().getScriptName();

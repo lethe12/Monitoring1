@@ -14,4 +14,5 @@ public interface MeasureView {
 	void showMaintainICON(boolean key);//维护标志
 	void showOnlineICON(boolean key);//是否在线标志
 	void showWarningICON(boolean key);//警告标志
+	void showResultsInfo(String result,String time,int sampleNumber);//显示多样品
 }

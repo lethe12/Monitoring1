@@ -42,7 +42,6 @@ public class AbsorbanceComputeData extends ComputeData implements Compute{
 		absorbance=value;
 		result = super.computeResult(value);
 		result = result*super.getConsumerSlope()+super.getConsumerIntercept();
-		Log.d(tag, "Result="+String.valueOf(result));
 		return result;
 	}
 	

@@ -20,6 +20,7 @@ public class MeasureInfo {
 	private String autoTestDateString;
 	private String autoCalDateString;
     private ArrayList<ResultUnit> resultUnits = new ArrayList<ResultUnit>();
+    private EquipmentInfo info;
 	
 
 	public String getAutoCalDateString() {
@@ -44,6 +45,7 @@ public class MeasureInfo {
 	public MeasureInfo(float result,long date,boolean autoTestEnable,long autoTest,boolean autoCalEnable,long autoCal,EquipmentInfo info) {
 		// TODO 自动生成的构造函数存根
 		this.result = result;
+        this.info = info;
 		if (date == 0) {
 			resultString = "Nan";
 			dateString = "测量时间:";
@@ -68,7 +70,11 @@ public class MeasureInfo {
 
 	}
 
-	public void setResults(int sampleNumber, float[] results, EquipmentInfo info){
+    public EquipmentInfo getInfo() {
+        return info;
+    }
+
+    public void setResults(int sampleNumber, float[] results, EquipmentInfo info){
         for(int i=0;i<sampleNumber;i++){
             ResultUnit unit;
             if(results[i]==0f){
@@ -92,10 +98,6 @@ public class MeasureInfo {
 	public String getAutoTestDateString() {
 		return autoTestDateString;
 	}
-
-
-	
-
 
 
 }

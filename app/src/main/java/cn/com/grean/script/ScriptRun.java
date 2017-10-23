@@ -199,7 +199,12 @@ public class ScriptRun implements ScriptRunListener{
 		// TODO 自动生成的方法存根
 		measureView.showResultInfo(result, testTime);
 	}
-	
+
+	@Override
+	public void updateResultsInfo(String result, String testTime, int sampleNumber) {
+
+	}
+
 	@Override
 	public String toString() {
 		// TODO 自动生成的方法存根
