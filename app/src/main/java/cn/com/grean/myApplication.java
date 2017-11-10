@@ -554,7 +554,14 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
 
 			}else if (devicesName.equals("Glyphosate")) {
 				equipmentInfo = new GlyphosateEquipmentInfo();
-			}else {
+			}else if(devicesName.equals("TP")){
+				equipmentInfo = new TpEquipmentInfo();
+			}else if(devicesName.equals("NH4")){
+				equipmentInfo = new Nh4EquipmentInfo();
+			}else if(devicesName.equals("Microcystis")) {
+				equipmentInfo = new MicrocystisEquipmentInfo();
+			}
+			else {
 				equipmentInfo = new TnEquipmentInfo();
 			}
 		}
@@ -567,7 +574,7 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
         SharedPreferences sp = this.getSharedPreferences("config",MODE_PRIVATE);
         ComputerDirector director = new ComputerDirector(new GeneralComputerParams());
         ComputerParams params = director.construct(sp);
-        if(devicesName.equals("Glyphosate")){
+        if(devicesName.equals("Glyphosate")||devicesName.equals("Microcystis")){
             return new AbsorbancyMultiSampleComputeData(params,this);
         }else{
             return new AbsorbancyMultiSampleComputeData(params,this);

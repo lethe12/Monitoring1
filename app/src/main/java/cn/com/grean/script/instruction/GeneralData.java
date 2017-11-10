@@ -1,5 +1,7 @@
 package cn.com.grean.script.instruction;
 
+import android.util.Log;
+
 import cn.com.grean.tools;
 
 
@@ -10,6 +12,7 @@ import cn.com.grean.tools;
  *
  */
 public class GeneralData {
+	private static final String tag ="GeneralData";
 	private float [] data = new float[9];
 	public float[] getData() {
 		return data;
@@ -43,8 +46,10 @@ public class GeneralData {
 	public void setData(byte [] data,int len){
 		if ((data.length >= 41)&&(len == 41)) {
 			for (int i = 0; i < 9; i++) {
-				this.data[i] = tools.getFloat(data, 4*i+6);				
+				this.data[i] = tools.getFloat(data, 4*i+3);
+				//Log.d(tag,String.valueOf(this.data[i]));
 			}
+
 		}
 	}
 

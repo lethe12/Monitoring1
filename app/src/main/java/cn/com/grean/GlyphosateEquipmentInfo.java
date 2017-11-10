@@ -20,12 +20,12 @@ public class GlyphosateEquipmentInfo implements EquipmentInfo{
             true,true,true,true,true,
             true,true,true};
     private final static boolean [] vd = {true,false,false,false,false};
-    private final static String [] vdOn = {"光源开","twoOn","ThreeOn","FourOn","FiveOn"};
-    private final static String [] vdOff = {"光源关","TwoOff","ThreeOff","FourOff","FiveOff"};
+    private final static String [] vdOn = {"光源开","LED开","加热开","FourOn","FiveOn"};
+    private final static String [] vdOff = {"光源关","LED关","加热关","FourOff","FiveOff"};
     //private final static String [] virtualDevicesStrings = {"光源","加热器","浊度补偿系数"};
     private final static String [] virtualDevicesStrings = {"None"};
     private final static String [] ranges={"1样品","2样品","4样品","8样品"};
-    private final static byte [] vdNum = {4,6,10,11,12};//虚拟设备编号
+    private final static byte [] vdNum = {4,5,6,11,12};//虚拟设备编号
 
     public GlyphosateEquipmentInfo(){
 

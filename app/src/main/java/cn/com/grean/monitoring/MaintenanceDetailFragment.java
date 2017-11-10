@@ -444,10 +444,10 @@ public class MaintenanceDetailFragment extends Fragment implements MaintenanceDe
                 }
                 break;
             case R.id.btnTempParam1:
-                presenter.calTemp(7, Float.valueOf(etTempParams[0].getText().toString()));
+                presenter.calTemp(4, Float.valueOf(etTempParams[0].getText().toString()));
                 break;
             case R.id.btnTempParam2:
-                presenter.calTemp(8, Float.valueOf(etTempParams[1].getText().toString()));
+                presenter.calTemp(5, Float.valueOf(etTempParams[1].getText().toString()));
                 break;
             case R.id.btnGetDetector:
                 ReadState read = new ReadState();

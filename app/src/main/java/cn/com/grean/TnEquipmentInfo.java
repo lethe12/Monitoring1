@@ -11,16 +11,16 @@ public class TnEquipmentInfo implements EquipmentInfo{
 	private final static String tag = "TnEquipmentInfo";
 	private final static String unit = "mg/L";
 	private EquipmentData data  = null;
-	private final static boolean [] pump = {true,true,true,false};
+	private final static boolean [] pump = {true,true,true,true};
 	private final static boolean [] valve = {true,true,true,true,true,
 											true,true,true,true,true,
 											true,true,true,true,true,
 											true,true,true,true,true,
 											true,true,true,true,true,
 											true,true,true};
-	private final static boolean [] vd = {true,true,false,false,false};
-	private final static String [] vdOn = {"光源开","消解开","ThreeOn","FourOn","FiveOn"};
-	private final static String [] vdOff = {"光源关","消解关","ThreeOff","FourOff","FiveOff"};
+	private final static boolean [] vd = {true,true,true,false,false};
+	private final static String [] vdOn = {"激光开","LED开","加热开","FourOn","FiveOn"};
+	private final static String [] vdOff = {"激光关","LED关","加热关","FourOff","FiveOff"};
 	//private final static String [] virtualDevicesStrings = {"光源","加热器","浊度补偿系数"};
 	private final static String [] virtualDevicesStrings = {"浊度补偿系数"};
 	private final static String [] ranges={"2mg/L","5mg/L","10mg/L"};
@@ -28,7 +28,7 @@ public class TnEquipmentInfo implements EquipmentInfo{
 	 * 使能虚拟设备命令
 	 */
 	private final static byte [] enableVirtualDevicesCmd ={0x01,0x11,0x04,0x00,0x03,0x00,0x0A,0x0d,0x0a};
-	private final static byte [] vdNum = {4,6,10,11,12};//虚拟设备编号
+	private final static byte [] vdNum = {4,5,6,11,12};//虚拟设备编号
 	public TnEquipmentInfo() {
 		// TODO 自动生成的构造函数存根
 

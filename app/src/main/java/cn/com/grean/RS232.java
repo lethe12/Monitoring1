@@ -28,7 +28,8 @@ public class RS232 extends SerialPortCommunication implements CommandSerialPort,
 	@Override
 	protected Boolean handleBuffer() {
 		// TODO 自动生成的方法存根
-		if (size >= 6) {
+		return true;
+		/*if (size >= 6) {
 			if ((mybuf[0] == 0x01)&&(mybuf[size-2]==0x0D)&&(mybuf[size-1]==0x0A)) {
 				return true;
 			}
@@ -38,7 +39,7 @@ public class RS232 extends SerialPortCommunication implements CommandSerialPort,
 		}
 		else {
 			return false;
-		}
+		}*/
 	}
 	
 	//发送异步串口信息
@@ -71,6 +72,7 @@ public class RS232 extends SerialPortCommunication implements CommandSerialPort,
 		if (CheckRS232(rec, len)) {			
 			switch (rec[1]) {
 			case 0x07:
+				//Log.d(tag,"read 9 datas");
 				generalData.setData(rec, len);
 				syncData = generalData;
 				break;

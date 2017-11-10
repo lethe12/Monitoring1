@@ -25,10 +25,10 @@ public class DetailMaintenance implements DetailMaintenanceModel{
 		if (data != null) {	
 			
 			return "CH1="+String.valueOf(data.getOne(0))+";CH2="+String.valueOf(data.getOne(1))+";"
-			+"CH3="+String.valueOf(data.getOne(2))+";CH4="+String.valueOf(data.getOne(3))+";"
-			+"液位1="+String.valueOf(data.getOne(4))+";\n液位2="+String.valueOf(data.getOne(5))+";"
-			+"温度1="+String.valueOf(data.getOne(6))+";温度2="+String.valueOf(data.getOne(7))+";"
-			+"CH9="+String.valueOf(data.getOne(8));
+			+"CH3="+String.valueOf(data.getOne(2))+";\nCH4="+String.valueOf(data.getOne(3))+";"
+			+"CH5="+String.valueOf(data.getOne(4))+";CH5="+String.valueOf(data.getOne(5))+";"
+			+"CH6="+String.valueOf(data.getOne(6));//+";温度2="+String.valueOf(data.getOne(7))+";"
+			//+"CH9="+String.valueOf(data.getOne(8));
 		}
 		else {
 			return null;
