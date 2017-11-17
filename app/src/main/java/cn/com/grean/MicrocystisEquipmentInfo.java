@@ -26,6 +26,7 @@ public class MicrocystisEquipmentInfo implements EquipmentInfo{
     private final static String [] virtualDevicesStrings = {"None"};
     private final static String [] ranges={"1样品","2样品","4样品","8样品"};
     private final static byte [] vdNum = {4,5,6,11,12};//虚拟设备编号
+    private final static boolean [] finishedVd = {false,false,false,false,false};
 
     public MicrocystisEquipmentInfo(){
 
@@ -37,6 +38,7 @@ public class MicrocystisEquipmentInfo implements EquipmentInfo{
             data = new EquipmentData(pump, valve, vd, vdOn, vdOff,vdNum);
             data.setHasInjectionPump(true);
             data.setHasRobotArm(true);
+            data.setVdFinishAble(finishedVd);
         }
         return data;
     }

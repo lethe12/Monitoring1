@@ -18,7 +18,7 @@ public class EquipmentData {
 	private String [] vdOnString = new String[5];
 	private String [] vdOffString = new String[5];//虚拟设备关闭时文字
 	private byte [] vdNumber = new byte[5];
-	
+	private boolean [] vdFinishAble = new boolean[5];
 	
 	public boolean isMaintance() {
 		return isMaintance;
@@ -37,6 +37,18 @@ public class EquipmentData {
 		System.arraycopy(vdOff, 0, vdOffString, 0, 5);
 		System.arraycopy(num,0,vdNumber,0,5);
 	}
+
+	public void setVdFinishAble(boolean vdFinishAble[]){
+        System.arraycopy(vdFinishAble,0,this.vdFinishAble,0,5);
+    }
+
+    public boolean getVdFinishAble(int i){
+        if(i<5){
+            return vdFinishAble[i];
+        }else {
+            return false;
+        }
+    }
 	
 	public String getVDOnString(int index) {
 		if (index < 5) {

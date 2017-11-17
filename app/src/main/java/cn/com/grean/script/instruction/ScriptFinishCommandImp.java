@@ -15,7 +15,7 @@ public class ScriptFinishCommandImp implements ScriptFinishCommand{
 		// TODO 自动生成的构造函数存根
 		EquipmentData data = myApplication.getInstance().getEquipmentInfo().getEquipmentData();
 		for (int i = 0; i < 5; i++) {
-			if (data.getVDState(i)) {
+			if (data.getVdFinishAble(i)) {
 				vdTrueTable[i] = true;
 				vdList[i] = data.getVDNumber(i);
 			}

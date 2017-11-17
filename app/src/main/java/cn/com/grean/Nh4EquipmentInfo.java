@@ -27,6 +27,7 @@ public class Nh4EquipmentInfo implements EquipmentInfo{
     //private final static String [] virtualDevicesStrings = {"光源","加热器","浊度补偿系数"};
     private final static String [] virtualDevicesStrings = {"浊度补偿系数"};
     private final static String [] ranges={"2mg/L","5mg/L","10mg/L"};
+    private final static boolean [] finishedVd = {false,false,true,false,false};
     /**
      * 使能虚拟设备命令
      */
@@ -43,6 +44,7 @@ public class Nh4EquipmentInfo implements EquipmentInfo{
             data = new EquipmentData(pump, valve, vd, vdOn, vdOff,vdNum);
             data.setHasInjectionPump(false);
             data.setHasRobotArm(false);
+            data.setVdFinishAble(finishedVd);
         }
         return data;
     }
