@@ -213,6 +213,15 @@ import android.annotation.SuppressLint;
 		return string;
 				
 	}
+
+	/*将时间戳转化为字符串
+	 * */
+	public static String timestamp2StringSecond(long l){
+		SimpleDateFormat sDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String string = sDateFormat.format(new Date(l));
+		return string;
+
+	}
 	/*获取当前时间的时间戳
 	 * */
 	public static long nowtime2timestamp(){

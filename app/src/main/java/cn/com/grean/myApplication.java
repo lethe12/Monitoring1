@@ -301,7 +301,7 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
 		String dd,vol;
 		while(c.moveToNext()){
 			//Log.d("数据查询", c.getString(0)+""+c.getInt(3));
-			dd=tools.timestamp2string(c.getLong(0));
+			dd=tools.timestamp2StringSecond(c.getLong(0));
 			vol=String.valueOf(c.getFloat(1));
 			string = dd+" CH1:"+vol;
 			vol=String.valueOf(c.getFloat(2));

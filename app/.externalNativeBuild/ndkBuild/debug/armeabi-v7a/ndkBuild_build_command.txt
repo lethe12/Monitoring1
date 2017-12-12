@@ -1,4 +1,4 @@
-Executable : C:\Users\weifeng\AppData\Local\Android\Sdk\ndk-bundle\ndk-build.cmd
+Executable : D:\Android\sdk\ndk-bundle\ndk-build.cmd
 arguments : 
 NDK_PROJECT_PATH=null
 APP_BUILD_SCRIPT=C:\Users\weifeng\AndroidStudioProjects\Monitoring1\app\src\main\jni\Android.mk
