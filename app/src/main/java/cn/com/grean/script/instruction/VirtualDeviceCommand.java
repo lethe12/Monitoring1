@@ -35,8 +35,6 @@ public class VirtualDeviceCommand implements Command{
 				return 1;
 			}
 			else{
-				data[3] = (byte) params[0];
-				data[4] = (byte) params[1];
 				return params[2];
 			}
 		}

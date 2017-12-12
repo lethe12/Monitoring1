@@ -277,7 +277,7 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
 		String dd,vol;
 		long l;
 		while(c.moveToNext()){
-			string = tools.timestamp2string(c.getLong(1))+" "+c.getString(2);
+			string = tools.timestamp2StringSecond(c.getLong(1))+" "+c.getString(2);
 			list.add(string);
 		}
 		
