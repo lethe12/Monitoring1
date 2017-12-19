@@ -508,7 +508,11 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
     public void showResultsInfo(String result, String time, int sampleNumber) {
         this.result = result;
         this.time = time;
-        this.ScriptSampleNumber = sampleNumber;
+        if(sampleNumber > 0){
+            this.ScriptSampleNumber = sampleNumber - 1;
+        }else{
+            this.ScriptSampleNumber = 0;
+        }
         Message msg = new Message();
         msg.what = ShowResultInfoWithSample;
         handler.sendMessage(msg);

@@ -20,8 +20,16 @@ public class MultiCh implements Command{
             if (params.length == 3) {
                 int num = params[0];
                 if (params[2] == 0) {
+                    if(data == null){
+                        logListener.writeLog("MultiCH,x,x,1 通讯异常");
+                        return 1;
+                    }
                     myApplication.getInstance().getMultiSampleComputer().setBackGroundValue(data.getOne(params[1]-1));
                 } else if (params[2] == 1) {
+                    if(data == null){
+                        logListener.writeLog("MultiCH,x,x,2 通讯异常");
+                        return 1;
+                    }
                     String stage = ScriptContent.getInstance().getScriptName();
                     MultiSampleComputer computer = myApplication.getInstance().getMultiSampleComputer();
                     ResultListener resultListener = ScriptContent.getInstance();

@@ -202,7 +202,7 @@ public class ScriptRun implements ScriptRunListener{
 
 	@Override
 	public void updateResultsInfo(String result, String testTime, int sampleNumber) {
-
+		measureView.showResultsInfo(result,testTime,sampleNumber);
 	}
 
 	@Override
