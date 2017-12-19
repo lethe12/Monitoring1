@@ -1,5 +1,7 @@
 package cn.com.grean.script.instruction;
 
+import android.util.Log;
+
 import cn.com.grean.myApplication;
 import cn.com.grean.script.LogListener;
 import cn.com.grean.script.ResultListener;
@@ -12,6 +14,7 @@ import cn.com.grean.script.algorithm.Compute;
  *
  */
 public class CHxCommand implements Command{
+	private static final String tag = "CHxCommand";
 	GeneralData data;
 	public CHxCommand() {
 		// TODO 自动生成的构造函数存根
@@ -25,22 +28,39 @@ public class CHxCommand implements Command{
 		
 		if(params.length ==2){
 			if (params[1] == 1) {
-				myApplication.getInstance().getCompute().setFirstValue(data.getOne(params[0]-1));
+                float fData;
+                if(data==null) {
+                    Log.d(tag, "ch,x,1");
+                    logListener.writeLog("CH,x,1 通讯异常");
+                    return 1;
+                }else{
+                    fData = data.getOne(params[0] - 1);
+                }
+                myApplication.getInstance().getCompute().setFirstValue(fData);
 			}
 			else if (params[1]==2) {
+                float fData;
+                if(data == null){
+                    logListener.writeLog("CH,x,2 通讯异常");
+                    return 1;
+                }else{
+                    fData = data.getOne(params[0]-1);
+                }
+
+				Log.d(tag,"ch,x,2");
 				String stage = ScriptContent.getInstance().getScriptName();
 				Compute compute = myApplication.getInstance().getCompute();
 				ResultListener resultListener = ScriptContent.getInstance();
 				if (stage.equals("测量")) {				
-					compute.Result(data.getOne(params[0]-1));
+					compute.Result(fData);
 					resultListener.onResultComplete(compute);
 				}
 				else if (stage.equals("高点校准")) {
-					compute.calibrationHigh(data.getOne(params[0]-1),0,1);
+					compute.calibrationHigh(fData,0,1);
 					resultListener.onCalibrationComplete(compute.getCalibrationHighLogInfo());
 				}
 				else if (stage.equals("低点校准")) {
-					compute.calibrationLow(data.getOne(params[0]-1),0,1);
+					compute.calibrationLow(fData,0,1);
 					resultListener.onCalibrationComplete(compute.getCalibrationLowLogInfo());
 				}
 				else {

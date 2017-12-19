@@ -225,11 +225,13 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
         DbTask helperDbTask = new DbTask(getApplicationContext(), 2);
         SQLiteDatabase db =  helperDbTask.getReadableDatabase();
         Cursor cursor = db.rawQuery("select * from result order by date desc", new String[]{});//这边写上你的查询语句
-        while (cursor.moveToNext()) {
+		Log.d(tag,"查询历史数据start"+String.valueOf(sampleNumber));
+        while (cursor.moveToNext()&&(index<sampleNumber)) {
             lastResults[index] =cursor.getFloat(1);
             lastDate = cursor.getLong(2);
             index++;
         }
+		Log.d(tag,"查询历史数据doing"+String.valueOf(index)+"/"+String.valueOf(sampleNumber));
         if(index < (sampleNumber-1)){
             for(int i=index;i<sampleNumber;i++){
                 lastResults[i] = 0f;
@@ -238,7 +240,7 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
         lastResult = lastResults[0];
         ProtocolProcessorImp.getInstance().setProtocolResult(lastResult);
         ProtocolProcessorImp.getInstance().setProtocolTimeStamp(lastDate);
-
+		Log.d(tag,"查询历史数据end");
     }
 	
 	public void dropDataBase (String [] tables){
@@ -607,11 +609,10 @@ public class myApplication extends Application implements Observer,ScriptGhostLi
 		
 		//Log.d(tag, String.valueOf(slopeMin)+";"+String.valueOf(slopeMax)+";"+String.valueOf(interceptMin)+";"+String.valueOf(interceptMax));
 		if (devicesName.equals("TN")) {	
-			DualAbsCompute dualAbsCompute =  new DualAbsCompute(params,this);
+			/*DualAbsCompute dualAbsCompute =  new DualAbsCompute(params,this);
 			dualCompute = dualAbsCompute;
-			return dualAbsCompute;	
-			
-			//return new AbsorbanceComputeData(params,this);
+			return dualAbsCompute;*/
+			return new AbsorbanceComputeData(params, this);
 		}else if(devicesName.equals("CODMN")){
 			return new TitrationComputeData(params,this);
 		}else if (devicesName.equals("NH4GSE")) {

@@ -25,7 +25,7 @@ public class Nh4EquipmentInfo implements EquipmentInfo{
     private final static String [] vdOn = {"激光开","LED开","加热开","FourOn","FiveOn"};
     private final static String [] vdOff = {"激光关","LED关","加热关","FourOff","FiveOff"};
     //private final static String [] virtualDevicesStrings = {"光源","加热器","浊度补偿系数"};
-    private final static String [] virtualDevicesStrings = {"浊度补偿系数"};
+    private final static String [] virtualDevicesStrings = {"None"};
     private final static String [] ranges={"2mg/L","5mg/L","10mg/L"};
     private final static boolean [] finishedVd = {false,false,true,false,false};
     /**
@@ -88,13 +88,14 @@ public class Nh4EquipmentInfo implements EquipmentInfo{
     public String getVirtualDevices(int pos,CommandSerialPort com) {
         // TODO 自动生成的方法存根
         Log.d(tag, "读参数");
-        if (pos==0) {
+        return "None";
+        /*if (pos==0) {
             //return "2";
             return String.valueOf(myApplication.getInstance().getDualCompute().getTurbCompenation());
         }
         else {
             return "None";
-        }
+        }*/
     }
 
     @Override

@@ -124,7 +124,7 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 				break;
 			case ScriptResultInfo:
 				//tv_result.setText(result);
-                resultView.showResult(result,1);
+                resultView.showResult(result,0);
 				tv_date.setText("测量时间:"+time);
 				break;
                 case ShowResultInfoWithSample:
@@ -317,7 +317,7 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
 	@Override
 	public void showResultInfo(String result, String time) {
 		// TODO 自动生成的方法存根
-		Log.d(tag, "显示结果");
+		Log.d(tag, "显示结果"+result+time);
 		this.result = result;
 		this.time = time;
 		Message msg = new Message();
@@ -576,7 +576,7 @@ public class MeasureFragment extends Fragment implements MeasureView,OnClickList
             this.sampleNumber = sampleNumber;
         }
         public void showResult(String result,int sampleNumber){
-            if(sampleNumber <= this.sampleNumber){
+            if(sampleNumber < this.sampleNumber){
                 results[sampleNumber].setText(result);
             }
         }
