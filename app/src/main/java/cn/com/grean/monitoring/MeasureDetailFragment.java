@@ -162,7 +162,7 @@ public class MeasureDetailFragment extends Fragment implements OnClickListener,M
 			break;
 		case R.id.btnSaveAutoInfo:
 			long interval = Integer.valueOf(etAutoTestInterval.getText().toString());
-			if ((interval < 50)||(interval > 1440)) {
+			if ((interval < 15)||(interval > 1440)) {
 				Toast.makeText(getActivity(), "时间间隔超范围，设置失败",Toast.LENGTH_SHORT ).show();
 			}
 			else {				
