@@ -56,11 +56,11 @@ public class CHxCommand implements Command{
 					resultListener.onResultComplete(compute);
 				}
 				else if (stage.equals("高点校准")) {
-					compute.calibrationHigh(fData,0,1);
+					compute.calibrationHigh(fData,1,1);
 					resultListener.onCalibrationComplete(compute.getCalibrationHighLogInfo());
 				}
 				else if (stage.equals("低点校准")) {
-					compute.calibrationLow(fData,0,1);
+					compute.calibrationLow(fData,1,1);
 					resultListener.onCalibrationComplete(compute.getCalibrationLowLogInfo());
 				}
 				else {

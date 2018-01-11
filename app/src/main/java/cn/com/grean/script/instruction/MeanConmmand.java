@@ -39,11 +39,11 @@ public class MeanConmmand implements Command{
 					resultListener.onResultComplete(compute);
 				}
 				else if (stage.equals("高点校准")) {
-					compute.calibrationHigh(sum,0,1);
+					compute.calibrationHigh(sum,1,1);
 					resultListener.onCalibrationComplete(compute.getCalibrationHighLogInfo());
 				}
 				else if (stage.equals("低点校准")) {
-					compute.calibrationLow(sum,0,1);
+					compute.calibrationLow(sum,1,1);
 					resultListener.onCalibrationComplete(compute.getCalibrationLowLogInfo());
 				}
 				else {
