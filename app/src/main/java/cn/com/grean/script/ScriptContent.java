@@ -104,11 +104,15 @@ public class ScriptContent extends Observable implements ScriptInfo,ResultListen
 		return stepSum;
 	}
 	public String getScriptName() {
+		setChanged();
+		notifyObservers(new LogFormat("当前脚本"+scriptName));
 		return scriptName;
 	}
 	
 	public void clearScriptName(){
 		scriptName = "";
+		setChanged();
+		notifyObservers(new LogFormat("更改脚本"));
 	}
 
 	private static ScriptContent instance = new ScriptContent(); 
@@ -123,12 +127,14 @@ public class ScriptContent extends Observable implements ScriptInfo,ResultListen
 	}
 	
 	public void upLoadScript(String name,ScriptCompleteListener listener,long timesamp){
-		Log.d(tag, name);
+		//Log.d(tag, name);
 		this.timestamp = timesamp;
 		if (scriptName != name) {			
 			scriptName = name;
 			ScriptReader reader = myApplication.getInstance();
 			reader.loadScriptContent(name, content);
+			setChanged();
+			notifyObservers(new LogFormat("加载新脚本"));
 			/*for (int i = 0; i < content.size(); i++) {
 				Log.d(tag,content.get(i));
 				

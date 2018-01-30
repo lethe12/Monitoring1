@@ -51,6 +51,7 @@ public class CHxCommand implements Command{
 				String stage = ScriptContent.getInstance().getScriptName();
 				Compute compute = myApplication.getInstance().getCompute();
 				ResultListener resultListener = ScriptContent.getInstance();
+				logListener.writeLog("CH Script Name = "+stage);
 				if (stage.equals("测量")) {				
 					compute.Result(fData);
 					resultListener.onResultComplete(compute);

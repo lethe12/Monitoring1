@@ -433,8 +433,10 @@ public class DetailAdvanced implements DetailAdvancedModel{
 	@Override
 	public void setDeviesRange(int range) {
 		// TODO 自动生成的方法存根
-		myApplication.getInstance().setDevicesRange(range);
-		ScriptContent.getInstance().clearScriptName();
+		if(myApplication.getInstance().getDevicesRange()!=range) {
+			myApplication.getInstance().setDevicesRange(range);
+			ScriptContent.getInstance().clearScriptName();
+		}
 	}
 
 	@Override
