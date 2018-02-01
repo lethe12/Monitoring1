@@ -24,7 +24,8 @@ public class PoseCommand implements Command{
     @Override
     public int execute(int[] params, CommandSerialPort com, GhostRecord ghostRecord, GhostCommand ghostCommand, LogListener logListener, String info) {
         if(params.length >=2) {
-            pose = state.getPoses().get(params[0]);
+            if((params[0] > 0)&&(params[0] < 21))
+            pose = state.getPoses().get(params[0]-1);
             state.setTargetX(pose.getX());
             state.setTargetY(pose.getY());
             state.setTargetZ(pose.getZ());
