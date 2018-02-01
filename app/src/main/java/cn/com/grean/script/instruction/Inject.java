@@ -19,9 +19,9 @@ public class Inject implements Command{
         if (params.length>=3){
             if(params[1] <= 1000) {
                 if (params[0] == 0) {
-                    com.Send(InjectionPumpManipulator.getGo2PoseCmd(false, params[1]));
+                    RS232InjectionPump.getInstance().Send(InjectionPumpManipulator.getGo2PoseCmd(false, params[1]));
                 } else {
-                    com.Send(InjectionPumpManipulator.getGo2PoseCmd(true, params[1]));
+                    RS232InjectionPump.getInstance().Send(InjectionPumpManipulator.getGo2PoseCmd(true, params[1]));
                 }
                 return params[2];
             }else{
