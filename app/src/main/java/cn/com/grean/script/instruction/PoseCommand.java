@@ -45,15 +45,15 @@ public class PoseCommand implements Command{
         tempState = (RobotArmState) com.SyncSend(RobotArmManipulator.scanPos);
         if(tempState!=null) {
             tempState.calcBias();
-            Log.d(tag,"位置误差"+String.valueOf(tempState.getBias()));
+            //Log.d(tag,"位置误差"+String.valueOf(tempState.getBias()));
             if (tempState.getBias()<0.1f){//到达位置跳出循环
-                Log.d(tag,"到达位置");
+               // Log.d(tag,"到达位置");
                 return true;
             }
         }
         times++;
         if(times > 99){
-            Log.d(tag,"超时跳出循环");
+            //Log.d(tag,"超时跳出循环");
             return true;
         }
         return false;

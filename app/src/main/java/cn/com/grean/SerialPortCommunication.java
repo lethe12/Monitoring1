@@ -148,7 +148,7 @@ public abstract class SerialPortCommunication {
 							mOutputStream.write(buffer);
 							mOutputStream.flush();
 							String str_s = tools.bytesToHexString(buffer, buffer.length);
-							Log.d(tag,"RS232发送->"+str_s);
+							//Log.d(tag,"RS232发送->"+str_s);
 						}
 						else {
 							times++;
@@ -239,13 +239,13 @@ public abstract class SerialPortCommunication {
                             String str_s = tools.bytesToHexString(buf, size);
 
                             strRecData = strRecData + str_s;
-                            Log.d(tag, "串口处理完<-" +strRecData + " size" + Integer.toString(size));
+                            //Log.d(tag, "串口处理完<-" +strRecData + " size" + Integer.toString(size));
                             strRecData = "";
                         }
                         else {
                             String str_s = tools.bytesToHexString(buf, size);
                             strRecData = strRecData + str_s;
-                            Log.d(tag,"串口收到<-" +  strRecData + " size" + Integer.toString(size));
+                            //Log.d(tag,"串口收到<-" +  strRecData + " size" + Integer.toString(size));
                             strRecData = "";
                         }
                     }
