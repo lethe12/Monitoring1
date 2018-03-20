@@ -26,7 +26,7 @@ public class Nh4EquipmentInfo implements EquipmentInfo{
     private final static String [] vdOff = {"激光关","LED关","加热关","FourOff","FiveOff"};
     //private final static String [] virtualDevicesStrings = {"光源","加热器","浊度补偿系数"};
     private final static String [] virtualDevicesStrings = {"None"};
-    private final static String [] ranges={"2mg/L","5mg/L","10mg/L"};
+    private final static String [] ranges={"0.5mg/L","2mg/L","5mg/L"};
     private final static boolean [] finishedVd = {false,false,true,false,false};
     /**
      * 使能虚拟设备命令

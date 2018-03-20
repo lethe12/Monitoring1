@@ -5,6 +5,7 @@ import java.util.List;
 
 import android.util.Log;
 
+import cn.com.grean.myApplication;
 import cn.com.grean.tools;
 import cn.com.grean.model.HistoryDataFormat;
 import cn.com.grean.protocol.GeneralBytesProtocol.ControlProtocol;
@@ -24,32 +25,32 @@ public class TCPASCIIProtocol implements GeneralASCIIProtocol{
 	public String ProcessProtocol(String rec, ControlProtocol controlProtocol,ProtocolHistoryData data) {
 		// TODO 自动生成的方法存根
 		String [] tempStrings = rec.split(";");
-		String busyString = "TN=Busy";
+		String busyString = "Device=Busy";
 		for (int i = 0; i < tempStrings.length; i++) {
 			String [] miniString = tempStrings[i].split("=");
 			if (miniString.length == 2) {
-				if (miniString[0].equals("TN")) {
+				if (miniString[0].equals("Device")) {
 					if (miniString[1].equals("Test")) {
 						if (controlProtocol.onComplete(ControlProtocol.TEST)) {							
-							return "TN=Testing";
+							return "Device=Testing";
 						}else {
 							return busyString;
 						}
 					}else if (miniString[1].equals("Calibrate")) {
 						if (controlProtocol.onComplete(ControlProtocol.CALIBRATION)) {
-							return "TN=Calibrating";
+							return "Device=Calibrating";
 						}else {
 							return busyString;
 						}
 					}else if (miniString[1].equals("QC")) {
 						if (controlProtocol.onComplete(ControlProtocol.QUALITY_CONTROL)) {
-							return "TN=QC";
+							return "Device=QC";
 						}else {
 							return busyString;
 						}
 					}else if (miniString[1].equals("Initialize")) {
 						if (controlProtocol.onComplete(ControlProtocol.INIT)) {
-							return "TN=Initializing";
+							return "Device=Initializing";
 						}else {
 							return busyString;
 						}
@@ -57,12 +58,12 @@ public class TCPASCIIProtocol implements GeneralASCIIProtocol{
 						if (controlProtocol.onComplete(ControlProtocol.STATE)) {
 							return busyString;
 						}else {
-							return "TN=Idle";
+							return "Device=Idle";
 						}
 					}else if (miniString[1].equals("Stop")) {
-						return "TN=Idle";
+						return "Device=Idle";
 					}else if (miniString[1].equals("Result")) {
-						return "TN="+tools.float2String3(result)+"mg/L;Date="+tools.timestamp2string(date);
+						return "Device="+tools.float2String3(result)+"mg/L;Date="+tools.timestamp2string(date);
 					}else if (miniString[1].equals("HistoryData")) {
 						long from = tools.nowtime2timestamp();
 						long to = from-7*24*60*60000l;
@@ -96,6 +97,8 @@ public class TCPASCIIProtocol implements GeneralASCIIProtocol{
 							string = string+tempString+";";									
 						}
 						return string;
+					}else if(miniString[1].equals("CalibrationInfo")){
+						return myApplication.getInstance().getCompute().getCalibrationInfo();
 					}
 					else {
 						return "Unknow Command";
